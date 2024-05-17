@@ -6,6 +6,7 @@
 20233tn132 Mejia Barrera Roberto Gustavo
 20233tn230 Medina Villagomez Luis Ricardo
 20233tn181 Maximiliano Torres Menez
+20233tn152 Rojas Vargas Luis David
 <<<<<<< HEAD
 20233tn199 Sanchez Dominguez Brayan Oswaldo
 
