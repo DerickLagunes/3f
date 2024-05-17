@@ -2,22 +2,14 @@
 20233tn229 Juarez Perez Jesus 
 20233tn147 Ramirez Bartolo Tomas
 20233tn207 Gomez Hernandez Ruben
-20233tn219 Padron Anguiano Oscar Geovany
 20233tn132 Mejia Barrera Roberto Gustavo
 20233tn230 Medina Villagomez Luis Ricardo
 20233tn181 Maximiliano Torres Menez
 20233tn152 Rojas Vargas Luis David
-<<<<<<< HEAD
+20233tn151 Madrigal Perez Zujeily Johemi 
 20233tn199 Sanchez Dominguez Brayan Oswaldo
-
-=======
 20233tn209 Salazar Aranda Benjamin
->>>>>>> 169121669c9d0bb2528110a47f90711fbf4b3758
 20233TN228 Zepeda Ruiz Edwin Gael 
 20233TN238 Hernández González Alexis
-<<<<<<< HEAD
-
-
-=======
+20233TN201 Hernandez Hernandez Gustavo Javier
 20233TN148 Ocampo Ramirez Pedro Fabian
->>>>>>> 6ed92f5a3f2e1f932acfeca7b27ff0f64c424949
