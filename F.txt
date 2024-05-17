@@ -14,5 +14,9 @@
 >>>>>>> 169121669c9d0bb2528110a47f90711fbf4b3758
 20233TN228 Zepeda Ruiz Edwin Gael 
 20233TN238 Hernández González Alexis
+<<<<<<< HEAD
 
 
+=======
+20233TN148 Ocampo Ramirez Pedro Fabian
+>>>>>>> 6ed92f5a3f2e1f932acfeca7b27ff0f64c424949
