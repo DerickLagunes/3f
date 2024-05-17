@@ -6,7 +6,12 @@
 20233tn230 Medina Villagomez Luis Ricardo
 20233tn181 Maximiliano Torres Menez
 20233tn152 Rojas Vargas Luis David
+<<<<<<< HEAD
+20233tn176 Jiménez Adame Cyan Giselle
+<<<<<<< HEAD
+=======
 20233tn151 Madrigal Perez Zujeily Johemi 
+>>>>>>> e88d2c2f925fd8f55150dabda6973098ee8afc9a
 20233tn199 Sanchez Dominguez Brayan Oswaldo
 20233tn209 Salazar Aranda Benjamin
 20233TN228 Zepeda Ruiz Edwin Gael 
