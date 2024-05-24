@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -8,56 +9,69 @@
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
 </head>
+
 <body>
     <h1>Benjamin Salazar Aranda</h1>
-<p>División Academica de Tecnologías de la Información.
-    Desarrollo de Software Multiplataforma
-    3F
-<br>
-Correo Electrónico: 20233TN209@utez.edu.mx
-<br>
-Matricula: 20233TN209
-<br>
+    <p>División Academica de Tecnologías de la Información.
+        Desarrollo de Software Multiplataforma
+        3F
+        <br>
+        Correo Electrónico: 20233TN209@utez.edu.mx
+        <br>
+        Matricula: 20233TN209
+        <br>
 
-Técnico Bachiller en Informática
-<br>
+        Técnico Bachiller en Informática
+        <br>
 
-Me gusta pasar tiempo con Arquitectura y Videojuegos, además de Música
-</p>
+        Me gusta pasar tiempo con Arquitectura y Videojuegos, además de Música
+    </p>
 
-<img id="carrusel" src="IMG/209/chl.jpg" width="300" height="300">
-<button id="sig"> Siguiente</button>
-<script>
-var imagen = document.getElementById("carrusel"); 
-var boton = document.getElementById("sig"); 
-boton.addEventListener("click", cambiarImagen); 
+    <img id="carrusel" src="IMG/209/chl.jpg" width="300" height="300">
+    <button id="sig"> Siguiente</button>
+    <script>
+        var imagen = document.getElementById("carrusel");
+        var boton = document.getElementById("sig");
+        boton.addEventListener("click", cambiarImagen);
 
-var imgI = "IMG/209/chl.jpg"; 
-    var imgII = "IMG/209/art.jpg"; 
-    var imgIII = "IMG/209/coleccion.jpg"; 
-    var imgIV = "IMG/209/d2.jpg"; 
-    var imgV = "IMG/209/ds.jpg"; 
+        var imgI = "IMG/209/chl.jpg";
+        var imgII = "IMG/209/art.jpg";
+        var imgIII = "IMG/209/coleccion.jpg";
+        var imgIV = "IMG/209/d2.jpg";
+        var imgV = "IMG/209/ds.jpg";
+        var i = 1; 
 
-function cambiarImagen(){
-    imagen.setAttribute("src", imgII);
-}
+        function cambiarImagen() {
+            i = (i + 1);
 
-   
-</script>
+            switch (i) {
+                case 1: imgI;
+                    break;
+                case 2: imgII;
+                    break;
+                case 3: imgIII;
+                    break;
+                case 4: imgIV;
+                    break;
+                case 5: imgV;
+                    break;
+            }
+        }
+
+    </script>
 
 
-
-
-
-<script>
-
-    var indiceActual = 0;
 
     function cambiarImagen() {
-        indiceActual = (indiceActual + 1) % imagenes.length;
-        imagen.src = imagenes[indiceActual];
+    i = (i + 1);
+
+    switch
+    imagen.src = imagenes[indiceActual];
     }
-</script>
+
+
+
 
 </body>
+
 </html>
