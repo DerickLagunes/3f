@@ -25,21 +25,21 @@ Técnico Bachiller en Informática
 Me gusta pasar tiempo con Arquitectura y Videojuegos, además de Música
 </p>
 
-<img id="carrusel" src="IMG/209/art.jpg" width="300" height="300">
+<img id="carrusel" src="IMG/209/chl.jpg" width="300" height="300">
 <button id="sig"> Siguiente</button>
 <script>
 var imagen = document.getElementById("carrusel"); 
 var boton = document.getElementById("sig"); 
 boton.addEventListener("click", cambiarImagen); 
 
-var imgI = "src", "IMG/209/chl.jpg"; 
-    var imgII = "src", "IMG/209/art.jpg"; 
-    var imgIII = "src", "IMG/209/coleccion.jpg"; 
-    var imgIV = "src", "IMG/209/d2.jpg"; 
-    var imgV = "src", "IMG/209/ds.jpg"; 
+var imgI = "IMG/209/chl.jpg"; 
+    var imgII = "IMG/209/art.jpg"; 
+    var imgIII = "IMG/209/coleccion.jpg"; 
+    var imgIV = "IMG/209/d2.jpg"; 
+    var imgV = "IMG/209/ds.jpg"; 
 
 function cambiarImagen(){
-    imagen.setAttribute(imgI);
+    imagen.setAttribute("src", imgI);
 }
 
    
