@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Imagenes Random</title>
   <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
     #image-container {
       text-align: center;
     }
@@ -12,9 +20,20 @@
       max-width: 100%;
       height: auto;
     }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
+
+<h1>Imágenes Random</h1>
 
 <div id="image-container">
   <img id="slide" src="" alt="Imagen de presentación">
@@ -23,7 +42,7 @@
 <button id="nextBtn">Siguiente</button>
 
 <script>
-  const img = [
+  const images = [
     "https://yt3.ggpht.com/-FJXWJ1x1bEQ/AAAAAAAAAAI/AAAAAAAAAAA/ZtyuZ-elFr4/s900-c-k-no-mo-rj-c0xffffff/photo.jpg",
     "https://tse2.explicit.bing.net/th?id=OIP.1LMrkrHfa0MRtxJo4y2jSAHaHa&pid=Api&P=0&h=180",
     "https://i.pinimg.com/originals/90/a4/81/90a4818b10e1ed583e74e58ba9dc2e14.jpg",
