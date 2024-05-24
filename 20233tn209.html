@@ -32,13 +32,31 @@ var imagen = document.getElementById("carrusel");
 var boton = document.getElementById("sig"); 
 boton.addEventListener("click", cambiarImagen); 
 
+var imgI = "src", "IMG/209/chl.jpg"; 
+    var imgII = "src", "IMG/209/art.jpg"; 
+    var imgIII = "src", "IMG/209/coleccion.jpg"; 
+    var imgIV = "src", "IMG/209/d2.jpg"; 
+    var imgV = "src", "IMG/209/ds.jpg"; 
+
 function cambiarImagen(){
     imagen.setAttribute(imgI);
 }
 
-    var imgI = "src", "IMG/209/coleccion.jpg"; 
-    var imgII = "src", "IMG/209/art.jpg"; 
+   
+</script>
 
+
+
+
+
+<script>
+
+    var indiceActual = 0;
+
+    function cambiarImagen() {
+        indiceActual = (indiceActual + 1) % imagenes.length;
+        imagen.src = imagenes[indiceActual];
+    }
 </script>
 
 </body>
