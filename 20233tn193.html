@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Imágenes</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .carousel-container {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            overflow: hidden;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+        .carousel-image {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .carousel-button.prev {
+            left: 10px;
+        }
+        .carousel-button.next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel-container">
+        <img class="carousel-image" src="../IMG/zoe1.jpg" alt="Imagen 1">
+        <button class="carousel-button prev">&#10094;</button>
+        <button class="carousel-button next">&#10095;</button>
+    </div>
+
+    <script>
+        const images = [
+            "../IMG/zoe1.jpg",
+            "../IMG/zoe2.jpg",
+            "../IMG/zoe3.jpg",
+            "../IMG/zoe4.jpg",
+            "../IMG/zoe5.jpg"
+        ];
+        let currentIndex = 0;
+        const imageElement = document.querySelector('.carousel-image');
+
+        function updateImage() {
+            imageElement.src = images[currentIndex];
+            imageElement.alt = `Imagen ${currentIndex + 1}`;
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage();
+        }
+
+        document.querySelector('.carousel-button.next').addEventListener('click', nextImage);
+        document.querySelector('.carousel-button.prev').addEventListener('click', prevImage);
+
+        updateImage();  // Initialize with the first image
+    </script>
+</body>
+</html>
