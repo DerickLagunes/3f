@@ -29,10 +29,14 @@
 
     <img id="carrusel" src="IMG/209/chl.jpg" width="300" height="300">
     <button id="sig"> Siguiente</button>
+    <button id="ant"> Anterior</button>
     <script>
         var imagen = document.getElementById("carrusel");
-        var boton = document.getElementById("sig");
-        boton.addEventListener("click", cambiarImagen);
+        var botonsig = document.getElementById("sig");
+        var botonant = document.getElementById("sig");
+
+        botonsig.addEventListener("click", cambiarImagen);
+        botonant.addEventListener("click", anteriorImagen);
 
         var imgI = "IMG/209/chl.jpg";
         var imgII = "IMG/209/art.jpg";
@@ -42,7 +46,44 @@
         var i = 1; 
 
         function cambiarImagen() {
+            
+            i = (i + 1); 
+
             switch (i) {
+            
+                case 1: 
+                imagen.setAttribute("src",imgI);
+                    break;
+                case 2: 
+                imagen.setAttribute("src",imgII);
+                    break;
+                case 3:
+                imagen.setAttribute("src",imgIII);
+                    break;
+                case 4: 
+                imagen.setAttribute("src",imgIV);
+                    break;
+                case 5: 
+                imagen.setAttribute("src",imgV);
+                    break;
+                    case 6: 
+                    imagen.setAttribute("src",imgI);
+                    i = 1; 
+                    break;
+            }
+        
+    }
+
+
+    function anteriorImagen() {
+            
+            i = (i - 1); 
+
+            switch (i) {
+            
+                case 0: 
+                    imagen.setAttribute("src",imgV);
+                    i = 1; 
                 case 1: 
                 imagen.setAttribute("src",imgI);
                     break;
@@ -63,7 +104,7 @@
     }
 
     </script>
-<h1>version 5.3</h1>
+<h1>version 6</h1>
 </body>
 
 </html>
