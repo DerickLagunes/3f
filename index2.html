@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imagenes Random</title>
+  <style>
+    #image-container {
+      text-align: center;
+    }
+    #image-container img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div id="image-container">
+  <img id="slide" src="" alt="Imagen de presentación">
+</div>
+<button id="prevBtn">Anterior</button>
+<button id="nextBtn">Siguiente</button>
+
+<script>
+  const img = [
+    "https://yt3.ggpht.com/-FJXWJ1x1bEQ/AAAAAAAAAAI/AAAAAAAAAAA/ZtyuZ-elFr4/s900-c-k-no-mo-rj-c0xffffff/photo.jpg",
+    "https://tse2.explicit.bing.net/th?id=OIP.1LMrkrHfa0MRtxJo4y2jSAHaHa&pid=Api&P=0&h=180",
+    "https://i.pinimg.com/originals/90/a4/81/90a4818b10e1ed583e74e58ba9dc2e14.jpg",
+    "https://static.wixstatic.com/media/16fbb1_e0f58f84b47a4754a55631e8c189d430~mv2.png/v1/fill/w_700,h_700,al_c/icon.png",
+    "https://i.ytimg.com/vi/rG2xIHxPXdw/hqdefault.jpg"
+  ];
+
+  let currentIndex = 0;
+  const slide = document.getElementById('slide');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  // Función para mostrar la imagen actual
+  function showImage(index) {
+    slide.src = images[index];
+  }
+
+  // Mostrar la primera imagen al cargar la página
+  showImage(currentIndex);
+
+  // Event listener para el botón de siguiente
+  nextBtn.addEventListener('click', function() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+  });
+
+  // Event listener para el botón de anterior
+  prevBtn.addEventListener('click', function() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+  });
+</script>
+
+</body>
+</html>
