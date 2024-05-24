@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/Minecra.css'>
+    <script src=''></script>
 </head>
 <body>
+    <div id="contenedor">
+
     <p>Hernandez Landa Enrique de Jesus</p>
     <p>Desarro de Software Multiplataforma </p><p>3° F</p>
     <P>20233tn174@utez.edu.mx</P>
@@ -13,6 +18,45 @@
     <p>Medio Superior</p>
     <p>Mis pasatiempos son ir al gym </p> <br>
     <p>Jugar Videojuegos y ver series</p>
-    <img src="C:\Users\kikel\OneDrive\Documentos\PAG WEB\IMG" alt="">
+    
+    
+    <img id= "Carrusel" src="IMG/BACKGROUND.jpg" alt="IMAGEN">
+
+    <button id="sig">Siguiente</button>
+    <button id="ant"> Anterior </button>
+        
+   <script>
+    var img = document.getElementById("Carrusel");        
+    var boton = document.getElementById("sig").addEventListener("click",siguienteimagen);
+    var boton2 = document.getElementById("ant").addEventListener("click",anteriorimagen)
+    var  array = ["IMG/Mascota.png","IMG/BACKGROUND.jpg","IMG/LOGO2.jpg","IMG/LOGO3.jpg", "IMG/MINECRA.png"];
+    
+    var contador=0;
+
+    function siguienteimagen(){
+
+        contador = (contador + 1) % array.length;
+        img.setAttribute("src", array[contador]);
+
+    }
+    function anteriorimagen(){
+        if(contador <= 0){
+
+            contador=5;
+        
+        }
+        
+        contador = (contador-1) % array.length;
+        img.setAttribute("src", array[contador]);
+
+
+    }
+        
+    
+    
+
+
+   </script>
+   </div>
 </body>
 </html>
