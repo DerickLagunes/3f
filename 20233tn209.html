@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Carrusel</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <h1>Benjamin Salazar Aranda</h1>
+<p>División Academica de Tecnologías de la Información.
+    Desarrollo de Software Multiplataforma
+    3F
+<br>
+Correo Electrónico: 20233TN209@utez.edu.mx
+<br>
+Matricula: 20233TN209
+<br>
+
+Técnico Bachiller en Informática
+<br>
+
+Me gusta pasar tiempo con Arquitectura y Videojuegos, además de Música
+</p>
+
+<img id="carrusel" src="IMG/imgI.jpg">
+<button id="sig"> Siguiente</button>
+<script>
+var imagen = document.getElementById("carrusel"); 
+var boton = document.getElementById("sig"); 
+boton.addEventListener("click", cambiarImagen); 
+
+function cambiarImagen(){
+    imagen.setAttribute("src", "IMG/imgII");
+}
+
+    var imgI = ""; 
+</script>
+
+</body>
+</html>
