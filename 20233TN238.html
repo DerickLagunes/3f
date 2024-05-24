@@ -1,17 +1,68 @@
-<DOCTYPE html>
-    <html>
-    <head>
-    <meta charset="utf-8">
-    <title>Mis datos de estudiante son los siguientes</title>
-    <h1>Mi nombre es <strong> Alexis Hernandez Gonzalez</strong></h1>
-    </head>
-    <body>
-        <body style="background-color: rgb(198, 149, 147);"
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis datos de estudiante</title>
+</head>
+<body style="background-color: rgb(198, 149, 147); text-align: center;">
+    <h1>Mi nombre es <strong>Alexis Hernández González</strong></h1>
+    <p>Mi carrera es <strong>Desarrollo de Software Multiplataforma</strong></p>
+    <p>Mi correo institucional es <strong>20233tn238@utez.edu.mx</strong></p>
+    <p>Mi matrícula es <strong>20233tn238</strong></p>
+    <p>Mis estudios son <strong>Técnico en Ofimática</strong></p>
+    <p>Mis pasatiempos son <strong>tocar guitarra y dibujar</strong></p>
 
-        <p> Mi carrera es <strong> Desarrollo de software multiplatafomra</strong></p>
-        <p> Mi correo institucional es <strong>20233tn238@utez.edu.mx</strong></p>
-        <p> Mi matricula es <strong>20233tn238</strong></p>
-        <p> Mis estudios son <strong>Tecnico en Ofimatica</strong></p>
-        <p> Mis pasatiempos son <strong>tocar guitarra y dibujar</strong></p>
-        </body>
-    </html>
+    <img src="" alt="Diapositiva 1" id="diapositiva-actual" class="imagen" style="width: 400px; height: 400px;"> <div class="botones">
+        <button id="anterior">Anterior</button>
+        <button id="siguiente">Siguiente</button>
+    </div>
+
+    <script>
+        // Arreglo de las imágenes
+        const imagenes = [
+            "IMG/kanye.gif",
+            "IMG/baila.gif",
+            "IMG/rock.gif",
+            "IMG/piolin.gif",
+            "IMG/penguin.gif"
+        ];
+
+        let i = 0; // Índice actual de la diapositiva
+
+        // Obtener referencias a los elementos HTML
+        const diapositiva = document.getElementById("diapositiva-actual");
+        const anterior = document.getElementById("anterior");
+        const siguiente = document.getElementById("siguiente");
+
+        // Mostrar la primera imagen al cargar la página
+        mostrarDiapositiva(i);
+
+        // Evento click para el botón "Anterior"
+        anterior.addEventListener("click", () => mostrarDiapositiva(i - 1));
+
+        // Evento click para el botón "Siguiente"
+        siguiente.addEventListener("click", () => mostrarDiapositiva(i + 1));
+
+        // Función para mostrar la diapositiva correspondiente al índice
+        function mostrarDiapositiva(indice) {
+            // Cálculo del índice con ciclo infinito
+            indice = indice % imagenes.length;
+
+            if (indice < 0) {
+                indice = imagenes.length - 1;
+            }
+
+            i = indice;
+            diapositiva.src = imagenes[indice];
+
+            actualizarBotones();
+        }
+
+        // Función para actualizar el estado de los botones "Anterior" y "Siguiente"
+        function actualizarBotones() {
+            anterior.disabled = i === 0;
+            siguiente.disabled = false;
+        }
+    </script>
+</body>
+</html>
