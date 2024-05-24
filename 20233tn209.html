@@ -46,64 +46,50 @@
         var i = 1; 
 
         function cambiarImagen() {
-            
-            i = (i + 1); 
+            i = (i % 5) + 1; 
 
             switch (i) {
-            
                 case 1: 
-                imagen.setAttribute("src",imgI);
+                    imagen.setAttribute("src", imgI);
                     break;
                 case 2: 
-                imagen.setAttribute("src",imgII);
+                    imagen.setAttribute("src", imgII);
                     break;
                 case 3:
-                imagen.setAttribute("src",imgIII);
+                    imagen.setAttribute("src", imgIII);
                     break;
                 case 4: 
-                imagen.setAttribute("src",imgIV);
+                    imagen.setAttribute("src", imgIV);
                     break;
                 case 5: 
-                imagen.setAttribute("src",imgV);
-                    break;
-                    case 6: 
-                    imagen.setAttribute("src",imgI);
-                    i = 1; 
+                    imagen.setAttribute("src", imgV);
                     break;
             }
-        
-    }
+        }
 
-
-    function anteriorImagen() {
-            
-            i = (i - 1); 
+        function anteriorImagen() {
+            i = (i - 2 + 5) % 5 + 1; 
 
             switch (i) {
-            
-                case -1: 
-                    imagen.setAttribute("src",imgV);
-                    i = 1; 
                 case 1: 
-                imagen.setAttribute("src",imgI);
+                    imagen.setAttribute("src", imgI);
                     break;
                 case 2: 
-                imagen.setAttribute("src",imgII);
+                    imagen.setAttribute("src", imgII);
                     break;
                 case 3:
-                imagen.setAttribute("src",imgIII);
+                    imagen.setAttribute("src", imgIII);
                     break;
                 case 4: 
-                imagen.setAttribute("src",imgIV);
+                    imagen.setAttribute("src", imgIV);
                     break;
                 case 5: 
-                imagen.setAttribute("src",imgV);
+                    imagen.setAttribute("src", imgV);
                     break;
             }
-        
-    }
-
+        }
     </script>
+    
 <h1>version 7</h1>
 </body>
 
