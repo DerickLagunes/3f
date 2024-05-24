@@ -4,6 +4,21 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Pagina web</title>
+	<style>
+        #carrusel {
+            text-align: center;
+            margin-top: 50px;
+        }
+        #carrusel img {
+            width: 80%;
+            max-width: 600px;
+            height: auto;
+        }
+        #carrusel button {
+            padding: 15px;
+            margin: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,5 +31,40 @@
 		<li><h2>Jugar videojuegos</h2></li>
 		<li><h2>Leer</h2></li>
 	</ul>
+	<div id="carrusel">
+		<img id="carrusel-imagen" src="" alt="Imagenes">
+		<br><br>
+		<button id="button_ant">Anterior</button>
+		<button id="button_sig">Siguiente</button>
+	</div>
+	
+	<script>
+		imagenes = [
+			'IMG/ajolote1.jpg',
+			'IMG/ajolote2.jpg',
+			'IMG/ajolote3.jpg',
+			'IMG/ajolote4.jpg',
+			'IMG/ajolote5.jpg'
+		];
+	
+		let imgActual = 0;
+	
+		carruselImg = document.getElementById('carrusel-imagen');
+		carruselImg.src = imagenes[imgActual];
+	
+		function imgSiguiente() {
+			imgActual = (imgActual < imagenes.length -1) ? imgActual + 1 : 0;
+			carruselImg.src = imagenes[imgActual];
+		}
+	
+		function imgAnterior() {
+			imgActual = (imgActual > 0) ? imgActual - 1 : imagenes.length -1;
+			carruselImg.src = imagenes[imgActual];
+		}
+	
+		document.getElementById('button_ant').addEventListener('click', imgAnterior);
+		document.getElementById('button_sig').addEventListener('click', imgSiguiente);
+		
+	</script>
 </body>
 </html>
