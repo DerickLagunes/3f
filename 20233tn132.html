@@ -1,23 +1,60 @@
+<!DOCTYPE html>
 <html>
-
 <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-    <meta charset="utf-8">
-
-    <title>Primer trabajo</title>
-
-    <body>
-        <p>Roberto Gustavo Mejia Barrera</p>
-        <p>Tecnologias de la informacion: desarrollo de software multiplataforma</p>
-        <p>20233tn132</p>
-        <p>CONALEP Temixco</p>
-        <p><strong>Pasatiempos</strong></p>
-        <p>Salir a correr</p>
-        <p>Juagr videojuegos</p>
-        <p>Ver peliculas</p>
-        <p>Escuchar musica</p>
-
-    </body>
-
+    <link rel='stylesheet' type='text/css' media='screen' href='css/Bootstrap5.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/132.css'>
+    
 </head>
-    </html>
+<body>
+    <h1>Roberto Gustavo Mejia Barrera</h1>
+    <h2>Tecnologias de la informacion: desarrollo de software multiplataforma</h2>
+    <p>20233tn132</p>
+    <p>CONALEP Temixco</p>
+    <p><strong>Pasatiempos</strong></p>
+    <p>Salir a correr</p>
+    <p>Juagr videojuegos</p>
+    <p>Ver peliculas</p>
+    <p>Escuchar musica</p>
+
+    <div class="Carrusel">
+        <img id="images" class="img" src="IMG/montañas.jpg">
+    </div>
+    <br>
+    <div class="Butons">
+    <button class="btn btn-primary" id="Atras">Atras</button> &nbsp;&nbsp;&nbsp;
+    <button class="btn btn-primary" id="siguiente">Siguiente</button>
+    </div>
+
+    <script>
+        
+        let carruselArrray=["IMG/montañas.jpg","IMG/pexels-eberhardgross-534164.jpg","IMG/pexels-qhung999-24768408.jpg",
+            "IMG/majestic-mountain-range-reflects-natural-beauty-dawn-generated-by-ai.jpg","IMG/pexels-googledeepmind-18069696.jpg"];
+
+        let i=0;
+
+        let images=document.getElementById("images");
+        let siguiente=document.getElementById("siguiente");
+        let Atras=document.getElementById("Atras");
+
+        siguiente.addEventListener('click', function (){
+            if(i==4)
+                i=0;
+            else{i++;}
+                images.src=carruselArrray[i];
+        });
+
+        Atras.addEventListener('click', function (){
+            if(i==0)
+                i=4;
+            else{i--;}
+            images.src=carruselArrray[i];
+        });
+        
+    </script>
+</body>
+</html>

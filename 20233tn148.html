@@ -3,19 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi primera pagina web</title>
+    <title>Carusel</title>
 </head>
-
+<style>
+    #div{
+        text-align: center;
+    }
+    body{
+        background-image: url(IMG/3d-brusting-planet-wallpaper.jpg);
+    }
+</style>
 <body>
-    <h1>Nombre: Ocampo Ramirez Pedro Fabian</h1>
-    <h1>Carrera: DSM Grupo: F</h1>
-    <h1>Correo institucional: 20233TN148@utez.edu.mx</h1>
-    <h1>Matricula: 20233TN148</h1>
-    <h1>Estudios: Medio superior</h1>
-    <h1>Mis pasatiempos</h1>
-    <ul>
-        <li> <h2>Ajedrez</h2></li>
-        <li> <h2>Fortnite</h2></li>
-    </ul>
+    <div id="div">
+        <button id="prev">anterior</button>
+        <img id="Carusel" src="IMG/camiloseptimo.jpg" width="200px" height="200px" alt="camiloseptimo">
+        <button id="sig">siguiente</button>
+    </div>
+
+    <script>
+        var imagen = document.getElementById("Carusel");
+        var botonSiguiente = document.getElementById("sig");
+        var botonAnterior = document.getElementById("prev");
+
+        // Array of image sources
+        var images = [
+            "IMG/camiloseptimo.jpg",
+            "IMG/enjambre.jpg",
+            "IMG/rammstein.jpg",
+            "IMG/6ix9ine.png",
+            "IMG/josejose.jpg",
+            "IMG/youngtender.jpg",
+            "IMG/leftysm.jpg",
+            "IMG/pesopluma.jpg",
+            "IMG/rihanna.jpg",
+            "IMG/jardin.jpg",
+            "IMG/fatjoe.jpg"
+        ];
+
+        // Index to keep track of the current image
+        var currentIndex = 0;
+
+        botonSiguiente.addEventListener("click", cambiarImagenSiguiente);
+        botonAnterior.addEventListener("click", cambiarImagenAnterior);
+
+        function cambiarImagenSiguiente() {
+            // Increment the index
+            currentIndex++;
+            
+            // If the index is out of bounds, reset it to 0
+            if (currentIndex >= images.length) {
+                currentIndex = 0;
+            }
+
+            // Change the src attribute of the image element
+            imagen.setAttribute("src", images[currentIndex]);
+        }
+
+        function cambiarImagenAnterior() {
+            // Decrement the index
+            currentIndex--;
+            
+            // If the index is out of bounds, set it to the last image
+            if (currentIndex < 0) {
+                currentIndex = images.length - 1;
+            }
+
+            // Change the src attribute of the image element
+            imagen.setAttribute("src", images[currentIndex]);
+        }
+    </script>
 </body>
 </html>

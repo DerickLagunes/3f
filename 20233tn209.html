@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Carrusel</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <h1>Benjamin Salazar Aranda</h1>
+    <p>División Academica de Tecnologías de la Información.
+        Desarrollo de Software Multiplataforma
+        3F
+        <br>
+        Correo Electrónico: 20233TN209@utez.edu.mx
+        <br>
+        Matricula: 20233TN209
+        <br>
+
+        Técnico Bachiller en Informática
+        <br>
+
+        Me gusta pasar tiempo con Arquitectura y Videojuegos, además de Música
+    </p>
+    <button id="ant" width="200" height="200"> Anterior</button>
+    <img id="carrusel" src="IMG/209/chl.jpg" width="250" height="250">
+    <button id="sig" width="200" height="200"> Siguiente</button>
+
+    <script>
+        var imagen = document.getElementById("carrusel");
+        var botonsig = document.getElementById("sig");
+        var botonant = document.getElementById("ant");
+
+        botonsig.addEventListener("click", cambiarImagen);
+        botonant.addEventListener("click", anteriorImagen);
+
+        var imgI = "IMG/209/chl.jpg";
+        var imgII = "IMG/209/art.jpg";
+        var imgIII = "IMG/209/coleccion.jpg";
+        var imgIV = "IMG/209/d2.jpg";
+        var imgV = "IMG/209/ds.jpg";
+        var i = 1; 
+
+        function cambiarImagen() {
+            i = (i % 5) + 1; 
+
+            switch (i) {
+                case 1: 
+                    imagen.setAttribute("src", imgI);
+                    break;
+                case 2: 
+                    imagen.setAttribute("src", imgII);
+                    break;
+                case 3:
+                    imagen.setAttribute("src", imgIII);
+                    break;
+                case 4: 
+                    imagen.setAttribute("src", imgIV);
+                    break;
+                case 5: 
+                    imagen.setAttribute("src", imgV);
+                    break;
+                case 6:     
+                    imagen.setAttribute("src", imgV);
+                    i = 0; 
+                    break;
+            }
+        }
+
+        function anteriorImagen() {
+            i = (i - 2 + 5) % 5 + 1; 
+
+            switch (i) {
+                case 1: 
+                    imagen.setAttribute("src", imgI);
+                    break;
+                case 2: 
+                    imagen.setAttribute("src", imgII);
+                    break;
+                case 3:
+                    imagen.setAttribute("src", imgIII);
+                    break;
+                case 4: 
+                    imagen.setAttribute("src", imgIV);
+                    break;
+                case 5: 
+                    imagen.setAttribute("src", imgV);
+                    break;
+            }
+        }
+    </script>
+
+<h1>version 8 </h1>
+</body>
+
+</html>
