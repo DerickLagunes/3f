@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrusel</title>
+  <style>
+    #slideshow {
+      display: block;
+      margin: 0 auto; /* Centrar la imagen */
+      max-width: 25%; /* Establecer el ancho máximo de la imagen */
+      height: auto;
+    }
+    button {
+      margin: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <img id="img" src="" alt="Presentación de Imágenes">
+  <button id="antes">Anterior</button>
+  <button id="despues">Siguiente</button>
+
+  <script>
+    const imagenes = [
+      "imagen_1.jpg",
+      "imagen_2.jpg",
+      "imagen_3.jpg",
+      "imagen_4.jpg",
+      "imagen_5.jpg"
+    ];
+    let indiceActual = 0;
+    const presentacion = document.getElementById("img");
+    const prevButton = document.getElementById("antes");
+    const nextButton = document.getElementById("despues");
+
+    function mostrarImagen(indice) {
+      presentacion.src = imagenes[indice];
+    }
+
+    function siguienteImagen() {
+      indiceActual = (indiceActual + 1) % imagenes.length;
+      mostrarImagen(indiceActual);
+    }
+
+    function anteriorImagen() {
+      indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
+      mostrarImagen(indiceActual);
+    }
+
+    // Mostrar la primera imagen al cargar la página
+    mostrarImagen(indiceActual);
+
+    // Agregar eventListeners a los botones
+    prevButton.addEventListener("click", anteriorImagen);
+    nextButton.addEventListener("click", siguienteImagen);
+  </script>
+</body>
+</html>

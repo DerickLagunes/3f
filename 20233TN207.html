@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="uff-8">
+        <meta charset="utf-8">
         <title>20233TN207</title>
-        
     </head>
     <body>
-        <img src="IMG/gato.gif">
-        <img src="IMG/mono.gif">
+        <img id="carousel" src="IMG/gato.gif" alt="Carousel Image" width="300px">
 
-        <img src="IMG/Goku.jpg">
+        <div>
+            <button id="prev">Anterior</button>
+            <button id="next">Siguiente</button>
+        </div>
 
         <h1>Información de Presentación</h1>
-
 
         <p>Ruben Gomez Hernandez</p>
         <p>Desarrollo de Software Multiplataforma</p>
@@ -20,10 +20,36 @@
         <p>Preparatoria y Licenciatura</p>
         <p>Mis pasatiempos son Jugar y ver series</p>
 
-        <img src="IMG/jugar.jpeg">
-        <img src="IMG/tele.jpeg">
+        <img src="IMG/jugar.jpeg" alt="Jugar">
+        <img src="IMG/tele.jpeg" alt="Ver series">
         
-        
-        
+        <script>
+            const images = [
+                "IMG/gato2.gif",
+                "IMG/mono.gif",
+                "IMG/goku.jpeg",
+                "IMG/anime.gif",
+                "IMG/anime2.gif",
+                "IMG/tele.jpeg"
+            ];
+
+            let currentIndex = 0;
+            const imgElement = document.getElementById("carousel");
+            const prevButton = document.getElementById("prev");
+            const nextButton = document.getElementById("next");
+
+            prevButton.addEventListener("click", showPrevImage);
+            nextButton.addEventListener("click", showNextImage);
+
+            function showPrevImage() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                imgElement.src = images[currentIndex];
+            }
+
+            function showNextImage() {
+                currentIndex = (currentIndex + 1) % images.length;
+                imgElement.src = images[currentIndex];
+            }
+        </script>
     </body>
 </html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slideshow</title>
+    <style>
+        #slideshow {
+            text-align: center;
+            margin-top: 50px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="slideshow">
+        <button id="prevButton">Anterior</button>
+        <img id="slideshowImage" src="" alt="Slideshow Image">
+        <button id="nextButton">Siguiente</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const images = [
+                'https://th.bing.com/th/id/R.a9a650826d44d7fcdf63a41076da65e6?rik=N65iGkzqZRf%2fMQ&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f33100000%2fSnoopy-wallpaper-snoopy-33124746-1024-768.jpg&ehk=%2bbb74vNCjYh7zNbtsX87JhzEU6NWZkQ7PVyAngENKfI%3d&risl=&pid=ImgRaw&r=0',
+                'https://th.bing.com/th/id/OIP.v9Ls29OIYMQzEBZM-6FjqAHaFj?rs=1&pid=ImgDetMain',
+                'https://pics.prcm.jp/23a687f6163c7/85978956/jpeg/85978956_480x356.jpeg',
+                'https://res.cloudinary.com/teepublic/image/private/s--aqEPjuht--/t_Preview/b_rgb:0195c3,c_limit,f_auto,h_630,q_90,w_630/v1627112852/production/designs/23247229_0.jpg',
+                'https://th.bing.com/th/id/R.4b32b5019c5e267ef424b3638334aa18?rik=qdCnYyXxq5F6Uw&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fd1JQvSD.jpg&ehk=TS8qqWBgo%2fABQStINRPJdijaLzfsogN2rK1J4nZUS5k%3d&risl=&pid=ImgRaw&r=0'
+            ];
+
+            let currentIndex = 0;
+
+            const imgElement = document.getElementById('slideshowImage');
+            const prevButton = document.getElementById('prevButton');
+            const nextButton = document.getElementById('nextButton');
+
+            function showImage(index) {
+                imgElement.src = images[index];
+            }
+
+            function showNextImage() {
+                currentIndex = (currentIndex + 1) % images.length;
+                showImage(currentIndex);
+            }
+
+            function showPrevImage() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage(currentIndex);
+            }
+
+            prevButton.addEventListener('click', showPrevImage);
+            nextButton.addEventListener('click', showNextImage);
+
+            // Show the first image initially
+            showImage(currentIndex);
+        });
+    </script>
+</body>
+</html>
+

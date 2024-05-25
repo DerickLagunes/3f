@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Mi página web </title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/tomas.css">
 </head>
 <body>
-    <h1>TOMÁS RAMIREZ BARTOLO</h1>
+    <h1 id="h1">TOMÁS RAMIREZ BARTOLO</h1>
     <h2>Tecnologías de la información área desarrollo de software multiplataforma 3'F </h2>
     <p>20233tn147@utez.edu.mx</p>
     <p>20233tn147</p>
@@ -17,5 +17,49 @@
         <li>tocar guitarra</li>
         <li>escuchar musica</li>
     </ul>
+    <div class="con-img">
+        <img src="IMG/beatles-t.png" alt="Los escarabajos" id="carrusel" width="800px" height="350px" >
+        <img src="IMG/volver-t.png" alt="" id="siguiente" height="50px">
+        <img src="IMG/volveer-t.png" alt="" id="volver" height="50px">
+
+    </div>
+
+    <script>
+        let carrusel = document.getElementById("carrusel");
+        let siguiente = document.getElementById("siguiente");
+        let volver = document.getElementById("volver");
+        let h1 = document.getElementById("h1");
+        let valor = 0;
+        //let valorA = 0;
+        //h1.innerHTML = valor;
+        /*let imgActual =*/ siguiente.addEventListener("click",function(){
+            valor = cambiarImgSig(valor);
+        })        
+
+        volver.addEventListener("click",function(){
+            valor =cambiarImgAt(valor);
+        })  
+
+        function cambiarImgSig(valor){
+            valor = valor + 1;
+            if(valor > 4){
+                valor = 4
+            }
+            const rutas = ["IMG/beatles-t.png", "IMG/queen-t.png","IMG/codplay-t.png","IMG/ms-t.png","IMG/jose-t.png"];
+            carrusel.setAttribute("src",rutas[valor]);
+            return valor;
+        }
+
+        function cambiarImgAt(valor){
+            valor = valor - 1;
+            if(valor < 0){
+                valor = 0
+            }
+            const rutas = ["IMG/beatles-t.png", "IMG/queen-t.png","IMG/codplay-t.png","IMG/ms-t.png","IMG/jose-t.png"];
+            carrusel.setAttribute("src",rutas[valor]);
+            return valor;
+        }
+        
+    </script>
 </body>
 </html>
