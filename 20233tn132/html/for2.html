@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Respuesta formulario</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/bootstrap.css'>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <br><br>
+        <br><br>
+    </div>
+    <div class="col">
+    <h1>Los datos son:</h1>
+    <h1 id="nameSet"></h1>
+    <h2 id="apSet"></h2>
+    <a id="emailLink">correo</a><br>
+    <p id="edadSet"></p>
+    <a id="telSet">tel</a>
+    <p id="userSet"></p>
+    <p id="StatusPs1"></p>
+    <p id="StatusPs2"></p>
+    </div>
+</div>
+<br>
+
+
+<script>
+    // Función para obtener parámetros de la URL
+    getParameter = (key) => {
+        address = window.location.search;
+        parameterList = new URLSearchParams(address);
+        return parameterList.get(key);
+    }
+
+    // Obtener los valores de los parámetros
+    name = getParameter("nombre");
+    ap = getParameter("apellidos");
+    email = getParameter("email");
+    fecha = getParameter("date");
+    tel = getParameter("phone");
+    user = getParameter("usuario");
+    pass = getParameter("pass");
+    pass2 = getParameter("pass2");
+
+    console.log("nombre:" + name);
+    console.log("apellidos es:" + ap);
+    console.log("email:" + email);
+    console.log("fecha:"+fecha);
+    console.log("telefono:"+tel);
+    console.log("usuario:"+user);
+    console.log("contra1: "+pass);
+    console.log("contra2: "+pass2);
+
+
+    let sp = fecha.split("-");
+    let mt = sp[1]; // Mes de nacimiento
+    let year = sp[0]; // Año de nacimiento
+
+    let edad;
+    if(parseInt(mt)>5){
+        edad=2024-parseInt(year)-1
+    }else{
+        edad=2024-parseInt(year);
+    }
+
+    if(pass==pass2){
+        document.getElementById("StatusPs1").innerText="las contraseñas si coinciden";
+        if(pass.length<=5){
+            document.getElementById("StatusPs2").innerText="la contraseña no es segura, posee pocos caracteres";
+        }else{
+            document.getElementById("StatusPs2").innerText="la contraseña es segura, posee suficientes caracteres :)";
+        }
+    }else{
+        document.getElementById("StatusPs1").innerText="las contraseñas no coinciden";
+    }
+
+
+    document.getElementById("nameSet").innerText ="Su nombre es: "+ name;
+    document.getElementById("apSet").innerText ="Sus apellidos son: " +ap;
+    email="'mailto:'"+email;
+    document.getElementById("emailLink").href = email;
+    document.getElementById("edadSet").innerText="Su edad es: "+edad;
+    /*href: "tel:teléfono"*/
+    tel="'tel:'"+tel;
+    document.getElementById("telSet").href = tel;
+    document.getElementById("userSet").innerText="su usuario es: "+user;
+</script>
+
+</body>
+</html>
