@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registro de persona</title>
+</head>
+<body>
+    <h1>Registro de usuario</h1>
+    <!-- El action es a donde me redirige la página -->
+    <form action="verPersona.html" method="get">
+        <label>Usuario: 
+            <input type="text" placeholder="Ingrese su usuario" 
+            required name="usuario"/>
+        </label>
+        <br>
+        <label>Contraseña: 
+            <input type="password" placeholder="Ingrese su contraseña" 
+            required name="contra"/>
+        </label>
+        <br>
+        <label>Repetir contraseña: 
+            <input type="password" placeholder="Ingrese denuevo su contraseña" 
+            required name="contra2"/>
+        </label>
+        <br>
+        <input type="submit" value="Registrar" />
+    </form>
+</body>
+</html>
