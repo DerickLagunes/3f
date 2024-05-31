@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>verPersona</title>
+</head>
+
+<body>
+    <h1 id="nombre"></h1>
+    <br>
+    <h2 id="apellido"></h2>
+    <p> Correo: <a  id="email" href=""></a></p>
+    <p> Telefono: <a id="telefono" href=""></a></p>
+    <p> Edad: <span id="edad"></span></p>
+
+    
+
+    <script>
+        // Función para obtener los parámetros del URL
+        let getParameter = (key) => {
+            let url = window.location.search; // Obtenemos la cadena de consulta (query string) del URL
+            let parameterList = new URLSearchParams(url); // Creamos un objeto URLSearchParams
+            return parameterList.get(key); // Retornamos el valor del parámetro 'key'
+        }
+
+        // Obtenemos los valores de los parámetros 'nombre' y 'apellido' después de que se haya cargado el DOM
+        document.addEventListener('DOMContentLoaded', (event) => {
+            let nombre = getParameter('nombre');
+            let apellido = getParameter('apellido');
+            let email = getParameter('email');
+            let telefono = getParameter('telefono');
+            let fecha = getParameter('fecha');
+            
+
+
+
+            // Mostramos los valores en los elementos HTML correspondientes
+            document.getElementById("nombre").textContent = nombre;
+            document.getElementById("apellido").textContent = apellido;
+            document.getElementById("email").setAttribute("href", "mailto:" + email);
+            document.getElementById("email").textContent = email;
+            document.getElementById("telefono").setAttribute("href", "tel:" + telefono);
+            document.getElementById("telefono").textContent = telefono;
+            
+            
+
+            //convertir la fecha para solo agarrar el año
+
+            let fechadenacimiento = new Date (fecha);
+            let año = fechadenacimiento.getFullYear();
+
+            //fecha actual
+
+            let fechahoy = new Date ();
+            let añoactual= fechahoy.getFullYear();
+
+            let edad = añoactual - año;
+
+
+
+            document.getElementById("edad").textContent = edad;
+            document.getElementById("año").textContent = año;
+            document.getElementById("añoactual").textContent = añoactual;
+
+        });
+    </script>
+</body>
+
+</html>
+
+
+
