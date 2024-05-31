@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información del Usuario</title>
+</head>
+<body>
+    <div id="userInfo"></div>
+
+    <script>
+        function calcularEdad(fechaNacimiento) {
+            var hoy = new Date();
+            var fechaNac = new Date(fechaNacimiento);
+            var edad = hoy.getFullYear() - fechaNac.getFullYear();
+            var mes = hoy.getMonth() - fechaNac.getMonth();
+            if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNac.getDate())) {
+                edad--;
+            }
+            return edad;
+        }
+
+        function mostrarInformacionUsuario() {
+            var params = new URLSearchParams(window.location.search);
+
+            var nombres = params.get("nombres");
+            var apellidos = params.get("apellidos");
+            var correo = params.get("correo");
+            var fechaNacimiento = params.get("fechaNacimiento");
+            var telefono = params.get("telefono");
+
+            var edad = calcularEdad(fechaNacimiento);
+
+            var userInfoDiv = document.getElementById("userInfo");
+
+            var nombresElement = document.createElement("h1");
+            nombresElement.innerText = nombres;
+            userInfoDiv.appendChild(nombresElement);
+
+            var apellidosElement = document.createElement("h2");
+            apellidosElement.innerText = apellidos;
+            userInfoDiv.appendChild(apellidosElement);
+
+            var correoElement = document.createElement("a");
+            correoElement.href = "mailto:" + correo;
+            correoElement.innerText = correo;
+            userInfoDiv.appendChild(correoElement);
+
+            userInfoDiv.appendChild(document.createElement("br"));
+
+            var telefonoElement = document.createElement("a");
+            telefonoElement.href = "tel:" + telefono;
+            telefonoElement.innerText = telefono;
+            userInfoDiv.appendChild(telefonoElement);
+
+            userInfoDiv.appendChild(document.createElement("br"));
+
+            var edadElement = document.createElement("p");
+            edadElement.innerText = "Edad: " + edad + " años";
+            userInfoDiv.appendChild(edadElement);
+        }
+
+        window.onload = mostrarInformacionUsuario;
+    </script>
+</body>
+</html>
