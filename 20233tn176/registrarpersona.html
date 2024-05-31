@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Personas</title>
+</head>
+<body>
+    <h1>Enviar Información</h1>
+    <form id="miFormulario" action="verPersona.html" method="get">
+        <label>
+            Nombre:
+            <input type="text" id="nombre" placeholder="Ingresa tu nombre completo" required name="nombre">
+        </label>
+        <br>
+        <label>
+            Apellidos:
+            <input type="text" id="apellidos" placeholder="Ingresa tus apellidos" required name="apellidos">
+        </label>
+        <br>
+        <label>
+            Email:
+            <input type="email" id="email" placeholder="Ingresa tu email" required name="email">
+        </label>
+        <br>
+        <label>
+            Fecha de Nacimiento:
+            <input type="date" id="fecha" placeholder="Ingresa tu fecha de nacimiento" required name="fecha_de_nacimiento">
+        </label>
+        <br>
+        <label>
+            Teléfono:
+            <input type="number" id="telefono" placeholder="Ingresa tu numero de telefono" required name="telefono">
+        </label>
+        <br>
+        <label>
+            Usuario:
+            <input type="text" id="user" placeholder="Ingresa tu nombre de usuario" required name="user">
+        </label>
+        <br>
+        <label>
+            Contraseña:
+            <input type="password" id="contra" placeholder="Ingresa una contraseña" required name="contra">
+        </label>
+        <br>
+        <label>
+            Repetir Contraseña:
+            <input type="password" id="repetir_contra" placeholder="Ingresa de nuevo tu contraseña" required name="repetir_contra">
+        </label>
+        <br><br>
+        <input type="submit" value="Enviar">
+    </form>
+    <br>
+    <div id="respuesta"></div>
+</body>
+</html>
