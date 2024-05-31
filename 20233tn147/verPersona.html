@@ -33,10 +33,12 @@
         
         h1.innerText = nombre;
         h2.innerText = apellido;
-        
+            
         h3.innerText = calcularEdad(fecha);
         telef.innerText = telefono;
+        telef.setAttribute("href","tel:"+telefono);
         mail.innerText = correo;
+        mail.setAttribute("href","mailto:"+correo);
         passsword.innerText = passwordSegura(contra1,contra2);
 
 
