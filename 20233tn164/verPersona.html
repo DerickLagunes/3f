@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="nombreUsuario"></h1>
+    <h2 id="apellidos"></h2>
+    <a id="correo">correo</a>
+    <p id="fecha"></p>
+    <a id="telefono">telefono</a>
+    <p id="usuario"></p>
+    <p id="statusContra1"></p>
+    <p id="statusContra2"></p>
+    <script>
+        getParameter = (key) =>{
+            address = window.location.search;
+
+            parameterList = new URLSearchParams(address);
+
+            return parameterList.get(key);
+        }
+        //Obtener datos
+        let nombre = getParameter("nombre");
+        let apellidos = getParameter("apellidos");
+        let correo = getParameter("email")
+        let fecha = getParameter("nac");
+        let telefono = getParameter("tel");
+        let usuario = getParameter("usuario");
+        let contra = getParameter("contra");
+        let contra2 = getParameter("contra2");
+
+        let sp = fecha.split("-");
+        let mt = sp[1];
+        let year = sp[0]; 
+        //Calculo de edad
+        let edad;
+        if(parseInt(mt)>5){
+            edad=2024-parseInt(year)-1;
+        }else{
+            edad=2024-parseInt(year);
+        }
+
+        //Pintar datos
+        document.getElementById("nombreUsuario").innerText = usuario;
+        document.getElementById("apellidos").innerText = apellidos;
+        correo="mailto:"+correo;
+        document.getElementById("correo").href = correo;
+        document.getElementById("fecha").innerText = edad;
+        telefono="tel:"+telefono;
+        document.getElementById("telefono").href = telefono;
+        document.getElementById("usuario").innerText = usuario;
+    
+
+        //Pintar estado de la contraseña
+        if(contra == contra2){
+            document.getElementById("statusContra1").innerText = "Tus contraseñas coinciden";
+            if(contra.length > 5){
+                document.getElementById("statusContra2").innerText = "Tu contraseña es segura";
+            }
+            else{
+                document.getElementById("statusContra2").innerText = "Tu contraseña no es segura";
+            }
+        }
+        else{
+            document.getElementById("statusContra1").innerText = "Tu contraseña no coincide";
+        }
+    </script>
+</body>
+</html>

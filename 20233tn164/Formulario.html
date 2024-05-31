@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resgistro de personas</title>
+</head>
+<body>
+    <h1>Enviar informacion</h1>
+    <!--El action es a donde me redirige la pagina-->
+    <form action="verPersona.html" method="get">
+        <label>Nombre:
+            <input type="text" placeholder="Ingrese su nombre" 
+            required name="nombre" id="nombre">
+        </label>
+        <br>
+        <label>Apelidos:
+            <input type="text" placeholder="Ingresa tus Apelidos"
+            required name="apellidos" id="apellidos">
+        </label>
+        <br>
+        <label>Correo:
+            <input type="email" placeholder="Ingresa tu correo"
+            required name="email" id="email">
+        </label>
+        <br>
+        <label>Fecha de nacimiento:
+            <input type="date" placeholder="Ingresa tu fecha de nacimiento"
+            required name="nac" id="nac">
+        </label>
+        <br>
+        <label>Telefono:
+            <input type="number" placeholder="Ingresa tu numero de telefono"
+            required name="tel" id="tel">
+        </label>
+        <br>
+        <label>Usuario:
+            <input type="text" placeholder="Ingresa tu Usuario"
+            required name="usuario" id="usuario">
+        </label>
+        <br>
+        <label>Contreaseña:
+            <input type="password" placeholder="Ingresa tu contraseña"
+            required name="contra" id="contra">
+        </label>
+        <br>
+        <label>Repetir contraseña:
+            <input type="password" placeholder="Ingresa nuevamente tu contraseña"
+            required name="contra2" id="contra2">
+        </label>
+        <input type="submit" value="Resgistrar">
+        <h1 id="respuesta"></h1>
+    </form>
+</body>
+</html>
