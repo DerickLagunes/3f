@@ -15,13 +15,12 @@
 
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        // Función para obtener parámetros de la URL
-        const getParameter = (key) => {
-            const address = window.location.search;
-            const paramList = new URLSearchParams(address);
-            return paramList.get(key);            
-        }
+         // Función para obtener parámetros de la URL
+         function getParameter(key) {
+                const address = window.location.search;
+                const parameterList = new URLSearchParams(address);
+                return parameterList.get(key);
+            }
 
         // Obtener los parámetros de la URL
         const nombres = getParameter('nombres');
@@ -52,8 +51,6 @@
         document.getElementById('telefono').innerHTML = `<a href="tel:${telefono}">${telefono}</a>`;
         document.getElementById('edad').textContent = `Edad: ${edad}`;
         document.getElementById('statusContrasena').textContent = statusContrasena;
-    });
-
-    </script>
+</script>
 </body>
 </html>
