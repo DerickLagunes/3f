@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
         }
-        .profile, #slideshow {
+        .Perfil, #CARRU {
             padding: 20px;
             margin: 20px;
             border: 1px solid #ccc;
@@ -20,10 +20,10 @@
         h1, h2 {
             color: #333;
         }
-        #slideshow {
+        #CARRU {
             text-align: center;
         }
-        #slideshow img {
+        #CARRU img {
             width: 500px;
             height: auto;
         }
@@ -38,7 +38,7 @@
     </style>
 </head>
 <body>
-    <div class="profile">
+    <div class="Perfil">
         <h1>Mi Información</h1>
         <ul>
             <li><strong>Nombre:</strong> Efrain</li>
@@ -59,11 +59,11 @@
         </ul>
     </div>
 
-    <div id="slideshow">
+    <div id="CARRU">
         <img id="image" src="" alt="Presentación de Imágenes">
         <div id="buttons">
-            <button id="prev">Anterior</button>
-            <button id="next">Siguiente</button>
+            <button id="Anterior">Anterior</button>
+            <button id="Siguiente">Siguiente</button>
         </div>
     </div>
 
@@ -82,8 +82,8 @@
         const imgElement = document.getElementById('image');
 
         // Botones
-        const prevButton = document.getElementById('prev');
-        const nextButton = document.getElementById('next');
+        const AnteriorButton = document.getElementById('Anterior');
+        const SiguienteButton = document.getElementById('Siguiente');
 
         // Función para mostrar la imagen actual
         function showImage(index) {
@@ -91,20 +91,20 @@
         }
 
         // Función para mostrar la imagen anterior
-        function showPrevImage() {
+        function showAnteriorImage() {
             currentIndex = (currentIndex - 1 + images.length) % images.length;
             showImage(currentIndex);
         }
 
         // Función para mostrar la imagen siguiente
-        function showNextImage() {
+        function showSiguienteImage() {
             currentIndex = (currentIndex + 1) % images.length;
             showImage(currentIndex);
         }
 
         // EventListeners para los botones
-        prevButton.addEventListener('click', showPrevImage);
-        nextButton.addEventListener('click', showNextImage);
+        AnteriorButton.addEventListener('click', showAnteriorImage);
+        SiguienteButton.addEventListener('click', showSiguienteImage);
 
         // Mostrar la primera imagen al cargar la página
         showImage(currentIndex);

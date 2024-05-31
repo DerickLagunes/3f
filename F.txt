@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 =======
+20233tn193 Chavez Arredondo Juan Manuel
 20233tn164 Fuentes Sandoval Francisco Armando
 20233tn229 Juarez Perez Jesus 
 20233tn147 Ramirez Bartolo Tomas
@@ -22,5 +23,9 @@
 20233TN148 Ocampo Ramirez Pedro Fabian
 20233TN155 Velazquez Carrasco Efrain Paul
 20233TN221 Martinez Aguilar Alison Larissa
+<<<<<<< HEAD
+20233TN237 Salinas Cervantes Nadia Yuridia
+=======
 20233tn237 Salinas Cervantes Nadia Yuridia
 >>>>>>> b51b37412f323244eefcec7fb1817ec28239ee89
+>>>>>>> 0a0c8529a4203c7e2e12a43f58efb458ee309432

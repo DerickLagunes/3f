@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bienvenido usuario</h1>
+    <h2 id="nombreUsuario"></h2>
+    <p id="statusContra"></p>
+    <a href="mailto:20233tn215@utez.edu.mx">
+        Enviar un correo a Hanna
+    </a>
+    <br>
+    <a href="tel:7776754839">
+        Llamar a zujeily
+    </a>
+    <script>
+        getParameter = (key) => {
+            address = window.location.search; // url de la ventana actual
+            // Objeto de tipo URLSearchParams
+            parameterList = new URLSearchParams(address);
+            // Regresa el valor del parámetro “key”
+            return parameterList.get(key);
+        }
+        console.log(getParameter("usuario"));
+        let usuario = getParameter("usuario");
+        let contra = getParameter("contra");
+        let contra2 = getParameter("contra2");
+
+        //Pintar el nombre de usuario
+        document.getElementById("nombreUsuario").innerText = usuario;
+        //Pintar estado de la contraseña
+        if(contra.length > 5){ //Segura
+            document.getElementById("statusContra").innerText = "Tu contraseña es segura";
+        }else{ //Insegura (Segun)
+            document.getElementById("statusContra").innerText = "Tu contraseña <b>No</b> es segura";
+        }
+    </script>
+</body>
+</html>

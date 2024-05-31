@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/bootstrap.css'>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col"><!--Tendre el form-->
+                <form id="forulario">
+                    <div class="mb-3">
+                      <label for="nombre" class="form-label">Nombre: </label>
+                      <input name="nom" type="text" class="form-control" id="nombre" aria-describedby="ayudaNombre">
+                      <div id="ayudaNombre" class="form-text">Ingrese su nombre porfavor.</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="matricula" class="form-label">Matrícula: </label>
+                      <input name="matricula" type="number" class="form-control" id="matricula">
+                    </div>
+                    <button id="nuevo" type="button" class="btn btn-success">Nuevo registro</button>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                  </form>
+            </div>
+            <div class="col"><!--Tendre la tabla-->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Integrante</th>
+                            <th>Matrícula</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contenido">
+                        <!-- Llenar con JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src='js/bootstrap.js'></script>
+    <script>
+        let i = 2;
+        let nuevo = document.getElementById("nuevo");
+        nuevo.addEventListener("clock", () => {
+            //crear nuevos elementos para el form
+            let div = document.createElement("div");
+            div.setAttribute("class","mb-3");
+            let label_nombre = document.createElement("abel");
+            let input_nombre = document.createElement("input");
+            label_nombre.setAttribute("for","nombre"+i);
+            label_nombre.setAttribute("class","form-label");
+            label_nombre.innerText = "nombre"+i;
+            input_nombre.setAttribute("name","nobre"+i);
+            input_nombre.setAttribute("type","texto");
+            input_nombre.setAttribute("class","form-control");
+
+            div.appendChild(label_nombre);
+            div.appendChild(input_nombre);
+            document.getElementById("formularios").appendChild(div);
+
+            i ++ ;
+        });
+    </script>
+    <script>
+        //Script para llenar la tabla de manera dinamica
+        getParameter = (key) => {
+            address = window.location.search; // url de la ventana actual
+            // Objeto de tipo URLSearchParams
+            parameterList = new URLSearchParams(address);
+            // Regresa el valor del parámetro “key”
+            return parameterList.get(key);
+        }
+        let nombre = getParameter("nombre");
+        let matricula = getParameter("matricula");
+
+        address = window.location.search;
+        parameterList = new URLSearchParams(address);
+
+        //Pintar la información en la tabla
+        function pintar(nombre, matricula){
+            let tbody = document.getElementById("contenido");
+            let row = document.createElement("tr");
+            let celda1 = document.createElement("td");
+            let celda2 = document.createElement("td");
+            celda1.innerText = nombre;
+            celda2.innerText = matricula;
+            row.appendChild(celda1);
+            row.appendChild(celda2);
+            tbody.appendChild(row);
+        }
+
+        //lista se pueden iterar en un foreach
+        parameterList.forEach(parametro => {
+            pintar(parametro, "vacio")
+        });
+    </script>
+</body>
+</html>

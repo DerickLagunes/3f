@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación de Imágenes</title>
+    <style>
+        #carousel {
+            text-align: center;
+        }
+        img {
+            max-width: 80%;
+            height: auto;
+        }
+        button {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="carousel">
+        <img id="image-display" src="" alt="Imagen de la presentación">
+        <div>
+            <button id="prev-btn">Anterior</button>
+            <button id="next-btn">Siguiente</button>
+        </div>
+    </div>
+    <script>
+        // URLs de las imágenes
+        const imageUrls = [  
+      
+            "../IMG/baby.jpg"
+            "../IMG/herizo.jpg"
+            "../IMG/panda.jpg"
+            "../IMG/hamster.jpg"
+            "../IMG/ardilla.jpg"
+        ];
+
+        // Índice de la imagen actual
+        let currentImageIndex = 0;
+
+        // Elementos del DOM
+        const imageDisplay = document.getElementById('image-display');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        // Función para actualizar la imagen mostrada
+        function updateImage() {
+            imageDisplay.src = imageUrls[currentImageIndex];
+        }
+
+        // Función para mostrar la imagen anterior
+        function showPrevImage() {
+            currentImageIndex = (currentImageIndex - 1 + imageUrls.length) % imageUrls.length;
+            updateImage();
+        }
+
+        // Función para mostrar la siguiente imagen
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
+            updateImage();
+        }
+
+        // Agregar event listeners a los botones
+        prevBtn.addEventListener('click', showPrevImage);
+        nextBtn.addEventListener('click', showNextImage);
+
+        // Inicializar la presentación con la primera imagen
+        updateImage();
+    </script>
+</body>
+</html>

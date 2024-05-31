@@ -1,20 +1,73 @@
 <DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>202333tn181</title>
-        <style>
-            h2 {text-align: center;
-                box-shadow: 2cm 0cm 1cm;
-                color: red;}
-        </style>
-    </head>
-    <body style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQENld4G7EJAe1x0JsjC1nl3i2EFaPLu4EdDnfe6S8Qag&s);">
-    </br>
-        <h2>Nombre: Torres Menez Maximiliano</h2>
-        <h2>Grupo: F </br>Carrera: DSM</h2>
-        <h2>202333tn181</h2>
-        <h2>Estudios: Escuela media superior</h2>
-        <h2>Pasatiempos: Escuchar musica</h2>
-    </body>
-</html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <title>202333tn181</title>
+            <style>
+                h2 {text-align: center;
+                    box-shadow: 2cm 0cm 1cm;
+                    color: red;}
+                .slider-container {
+                    display: flex;
+                    width: 20%;
+                    height: 60%;
+                    overflow-x: scroll;
+                    scroll-snap-type: x mandatory;
+                    }
+    
+                .slider-container img {
+                    flex: 0 0 100%;
+                    width: 70%;
+                    object-fit: cover;
+                    scroll-snap-align: center;
+                    }
+            </style>
+        </head>
+        <body style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQENld4G7EJAe1x0JsjC1nl3i2EFaPLu4EdDnfe6S8Qag&s);">
+        </br>
+            <h2>Nombre: Torres Menez Maximiliano</h2>
+            <h2>Grupo: F </br>Carrera: DSM</h2>
+            <h2>202333tn181</h2>
+            <h2>Estudios: Escuela media superior</h2>
+            <h2>Pasatiempos: Escuchar musica</h2>
+            
+            <div>
+                <button id="prev">Anterior</button>
+                <button id="next">Siguiente</button>
+            </div>
+            <img id="carousel" src="IMG/Max_Gleipnir1.jpg" alt="Carousel Image" style="
+            width: 20%;
+            height: 60%;">
+            <script>
+                const images = [
+                    "IMG/Max_Gleipnir1.jpg",
+                    "IMG/Max_Gleipnir2.jfif",
+                    "IMG/Max_Gleipnir3.jpg",
+                    "IMG/Max_Gleipnir4.jpg",
+                    "IMG/Max_Gleipnir5.jpg",
+                ];
+    
+                let currentIndex = 0;
+                const imgElement = document.getElementById("carousel");
+                const prevButton = document.getElementById("prev");
+                const nextButton = document.getElementById("next");
+    
+                prevButton.addEventListener("click", showPrevImage);
+                nextButton.addEventListener("click", showNextImage);
+    
+                function showPrevImage() {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                    imgElement.src = images[currentIndex];
+                }
+    
+                function showNextImage() {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    imgElement.src = images[currentIndex];
+                }
+            </script>
+
+            <div class="slider-container">  
+                
+              </div>  
+        </body>
+    </html>
