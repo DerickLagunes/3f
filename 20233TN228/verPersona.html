@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de la Persona</title>
+</head>
+<body>
+    <h1 id="nombres"></h1>
+    <h2 id="apellido"></h2>
+    <p id="correo"></p>
+    <p id="telefono"></p>
+    <p id="edad"></p>
+    <p id="statusContrasena"></p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Función para obtener parámetros de la URL
+            const getParameter = (key) => {
+                const address = window.location.search;
+                const paramList = new URLSearchParams(address);
+                return paramList.get(key);            
+            }
+
+            // Obtener los parámetros de la URL
+            const nombres = getParameter('nombres');
+            const apellido = getParameter('apellido');
+            const correo = getParameter('correo');
+            const telefono = getParameter('telefono');
+            const fechaNacimiento = new Date(getParameter('fechaNacimiento'));
+            const usuario = getParameter('usuario');
+            const contrasena = getParameter('contrasena');
+            const repetirContrasena = getParameter('repetirContrasena');
+
+            let statusContrasena;
+            if (contrasena !== repetirContrasena) {
+                statusContrasena = "Las contraseñas no coinciden wacha bien lo que escribes";
+            } else if (contrasena.length < 5) {
+                statusContrasena = "Tu contraseña no es segura compi";
+            } else {
+                statusContrasena = "Tu contraseña es segura mi compi";
+            }
+
+            // Calcular la edad actual
+            const edad = new Date().getFullYear() - fechaNacimiento.getFullYear();
+
+            // Mostrar los resultados en el DOM
+            document.getElementById('nombres').textContent = nombres;
+            document.getElementById('apellido').textContent = apellido;
+            document.getElementById('correo').innerHTML = `<a href="mailto:${correo}">${correo}</a>`;
+            document.getElementById('telefono').innerHTML = `<a href="tel:${telefono}">${telefono}</a>`;
+            document.getElementById('edad').textContent = `Edad: ${edad}`;
+            document.getElementById('statusContrasena').textContent = statusContrasena;
+        });
+    </script>
+</body>
+</html>

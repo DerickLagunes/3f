@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ver Persona</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="css/bootstrap.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 id="nombres"></h1>
+      <h1 id="apellidos"></h1>
+      <p>
+        Correo: <a id="correo" href=""></a><br />
+        Teléfono: <a id="telefono" href=""></a><br />
+      </p>
+      <p id="edad"></p>
+    </div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+
+      const nombres = params.get("nombres");
+      const apellidos = params.get("apellidos");
+      const correo = params.get("correo");
+      const fechaNacimiento = params.get("fechaNacimiento");
+      const telefono = params.get("telefono");
+
+      const calcularEdad = (fecha) => {
+        const hoy = new Date();
+        const nacimiento = new Date(fecha);
+        let edad = hoy.getFullYear() - nacimiento.getFullYear();
+        const mes = hoy.getMonth() - nacimiento.getMonth();
+        if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+          edad--;
+        }
+        return edad;
+      };
+
+      const edad = calcularEdad(fechaNacimiento);
+
+      document.getElementById("nombres").textContent = nombres;
+      document.getElementById("apellidos").textContent = apellidos;
+      document.getElementById("correo").textContent = correo;
+      document.getElementById("correo").href = `mailto:${correo}`;
+      document.getElementById("telefono").textContent = telefono;
+      document.getElementById("telefono").href = `tel:${telefono}`;
+      document.getElementById("edad").textContent = `Edad: ${edad} años`;
+    </script>
+    <script src="js/bootstrap.js"></script>
+  </body>
+</html>

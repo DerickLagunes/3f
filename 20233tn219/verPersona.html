@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Ver Persona</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/bootstrap.css'>
+    <script src='js/bootstrap.js'></script>
+</head>
+<body>
+    <div class="container">
+        <h1 id="nombres"></h1>
+        <h2 id="apellidos"></h2>
+        <p>Correo: <a id="correo" href="#"></a></p>
+        <p>Teléfono: <a id="telefono" href="#"></a></p>
+        <p id="edad"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+
+            const nombres = urlParams.get('nombres');
+            const apellidos = urlParams.get('apellidos');
+            const correo = urlParams.get('correo');
+            const fechaNacimiento = urlParams.get('fechaNacimiento');
+            const telefono = urlParams.get('telefono');
+
+            document.getElementById('nombres').textContent = nombres;
+            document.getElementById('apellidos').textContent = apellidos;
+            document.getElementById('correo').textContent = correo;
+            document.getElementById('correo').href = 'mailto:' + correo;
+            document.getElementById('telefono').textContent = telefono;
+            document.getElementById('telefono').href = 'tel:' + telefono;
+
+            const birthDate = new Date(fechaNacimiento);
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDifference = today.getMonth() - birthDate.getMonth();
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            document.getElementById('edad').textContent = 'Edad: ' + age + ' años';
+        });
+    </script>
+</body>
+</html>
