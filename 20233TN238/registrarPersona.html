@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar persona</title>
+</head>
+    <body>
+        <h1>Registrar persona</h1>
+        <!--El action es a donde dirige la pagina-->
+        <form action = "verPersona.html" method="get">
+        <label> Nombres:
+            <input type = "text" placeholder="Ingrese su nombre"
+            required name="nombres">
+        </label>
+        <br>
+        <label> Apellidos:
+            <input type = "text" placeholder="Ingrese sus apellidos"
+            required name="apellidos">
+        </label>
+        <br>
+        <label> Correo electrónico:
+            <input type = "email" placeholder="Ingrese su correo electrónico"
+            required name ="email">
+        </label>
+        <br>
+        <label> Fecha de nacimiento:
+            <input type = "date" placeholder="Ingrese su fecha de naciemiento"
+            required name ="fecha">
+        </label>
+        <br>
+        <label> Numero de telefono:
+            <input type = "number" placeholder="Ingrese su numero de telefono"
+            required name ="telefono">
+        </label>
+        <br>
+        <label> Contraseña:
+            <input type = "password" placeholder="Ingrese su contraseña"
+            required name ="contra">
+        </label>
+        <br>
+        <label> Repetiir contraseña:
+            <input type = "password" placeholder="Ingresar de nuevo la contraseña"
+            required name="contra2">
+        </label>
+        <br>
+        <label> Usuario:
+            <input type = "text" placeholder="Ingrese su usuario"
+            required name="usuario">
+        </label>
+        <br>
+        <input type = "submit" value="Registrar">
+
+        </form>
+
+
+    </body>
+</html>
