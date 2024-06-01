@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Datos del Ciente</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='CSS/bootstrap.css'>
+</head>
+<body>
+<h1>Bienvenido usuario</h1>
+<h2 id="name"></h2>
+<h4 id="last"></h4>
+<p id="email"></p>
+<p id="date"></p>
+<p id="tel"></p>
+<p id="user"></p>
+
+<p id="statusContra"></p>
+
+<script>
+    function getParameter(key) {
+        let address = window.location.search; // Obtiene la URL de la barra de búsqueda del navegador
+        let parameterList = new URLSearchParams(address); // Busca los parámetros
+        return parameterList.get(key); // Regresa el valor del parámetro "key"
+    }
+
+    console.log(getParameter("name"));
+    let name = getParameter("name");
+    let last = getParameter("last");
+    let email = getParameter("email");
+    let date = getParameter("date");
+    let tel = getParameter("tel");
+    let user = getParameter("user");
+    let contra = getParameter("contra");
+    let contra2 = getParameter("contra2");
+
+    // Pintar nombre de usuario
+    document.getElementById("name").innerText = name;
+    document.getElementById("last").innerText = last;
+    document.getElementById("email").innerText = email;
+    document.getElementById("date").innerText = date;
+    document.getElementById("tel").innerText = tel;
+    document.getElementById("user").innerText = user;
+    document.getElementById("contra").innerText = contra;
+    document.getElementById("contra2").innerText = contra2;
+
+    // Pintar estado de la contraseña
+    if (contra.length > 7 || contra2.length > 7) {
+        document.getElementById("statusContra").innerText = "Tu contraseña es segura";
+    } else {
+        document.getElementById("statusContra").innerText = "Tu contraseña NO es segura";
+    }
+
+    if (contra=!contra2) {
+        document.getElementById("erronea").innerText = "Contraseñas no coinciden";
+    } else {
+        document.getElementById("erronea").innerText = "Contraseñas coinciden";
+    }
+</script>
+
+<button src="NuevoCliente.html">Volver</button>
+
+
+</body>
+</html>

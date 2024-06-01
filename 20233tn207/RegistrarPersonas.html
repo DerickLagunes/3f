@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Personas</title>
+</head>
+<body>
+    <h1>Enviar Información</h1>
+    <form id="registroForm" action="verPersona.html" method="GET">
+        <label>
+            Nombre:
+            <input type="text" id="nombre" placeholder="Ingresa tu Nombre" required name="nombre">
+        </label>
+        <br>
+
+        <label>
+            Apellido:
+            <input type="text" id="apellido" placeholder="Ingresa tu Apellido" required name="apellido">
+        </label>
+        <br>
+
+        <label>
+            Email:
+            <input type="email" id="email" placeholder="Ingresa tu email" required name="email">
+        </label>
+        <br>
+
+        <label>
+            Fecha de nacimiento:
+            <input type="date" id="fecha" placeholder="Ingresa tu fecha de nacimiento" required name="fecha">
+        </label>
+        <br>
+
+        <label>
+            Teléfono:
+            <input type="tel" id="telefono" placeholder="Ingresa tu telefono" required name="telefono">
+        </label>
+        <br>
+
+        <label>
+            Usuario:
+            <input type="text" id="usuario" placeholder="Ingresa tu usuario" required name="usuario">
+        </label>
+        <br>
+
+        <label>
+            Contraseña:
+            <input type="password" id="contraseña" placeholder="Ingresa tu contraseña" required name="contraseña">
+        </label>
+        <br>
+
+        <label>
+            Repetir contraseña:
+            <input type="password" id="repetircontraseña" placeholder="Repetir tu contraseña" required name="repetir_contraseña">
+        </label>
+        <br>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+
+    <p id="errorContraseña" style="color: red;"></p>
+    <p id="cortaContraseña" style="color: red;"></p>
+
+    <br>
+    <div id="respuesta"></div>
+
+    <script>
+        document.getElementById('registroForm').addEventListener('submit', function(event) {
+
+            let contraseña = document.getElementById("contraseña").value;
+            if (contraseña.length < 5) {
+                document.getElementById("cortaContraseña").textContent = "La contraseña es demasiado corta";
+                    event.preventDefault();
+                    alert("Las contraseña es demasiado corta");
+            }
+            let repetircontraseña = document.getElementById("repetircontraseña").value;
+            if (contraseña !== repetircontraseña) {
+                    document.getElementById("errorContraseña").textContent = "Las contraseñas no coinciden";
+                    event.preventDefault();
+                    alert("Las contraseñas no coinciden");
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Registro de Persona</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='csc/bootstrap.css'>
+    <script src='jss/bootstrap.js'></script>
+</head>
+<body>
+    <form class="row g-3" action="verPersona.html" method="GET">
+        <div class="col-md-6">
+          <label for="nombres" class="form-label">Ingresa tu nombre</label>
+          <input type="text" class="form-control" id="nombres" name="nombres" required>
+        </div>
+        <div class="col-md-6">
+          <label for="apellidos" class="form-label">Ingresa tu Apellido</label>
+          <input type="text" class="form-control" id="apellidos" name="apellidos" required>
+        </div>
+        <div class="col-md-6">
+          <label for="correo" class="form-label">Correo</label>
+          <input type="email" class="form-control" id="correo" name="correo" required>
+        </div>
+        <div class="col-md-6">
+          <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+          <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" required>
+        </div>
+        <div class="col-md-6">
+          <label for="telefono" class="form-label">Teléfono</label>
+          <input type="tel" class="form-control" id="telefono" name="telefono" required>
+        </div>
+        <div class="col-md-6">
+          <label for="usuario" class="form-label">Usuario (Apodo o Matricula)</label>
+          <input type="text" class="form-control" id="usuario" name="usuario" required>
+        </div>
+        <div class="col-md-6">
+          <label for="contrasena" class="form-label">Contraseña (Debe tener al menos 5 caracteres)</label>
+          <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+        </div>
+        <div class="col-md-6">
+          <label for="repetirContrasena" class="form-label">Repite la constraseña por favor</label>
+          <input type="password" class="form-control" id="repetirContrasena" name="repetirContrasena" required>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Registrarse</button>
+        </div>
+        <div class="col-12">
+          <p id="mensaje"></p>
+        </div>
+    </form>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            var contrasena = document.getElementById('contrasena').value;
+            var repetirContrasena = document.getElementById('repetirContrasena').value;
+            var mensaje = document.getElementById('mensaje');
+            
+            mensaje.textContent = '';
+            if (contrasena !== repetirContrasena) {
+                event.preventDefault();
+                mensaje.textContent = 'Las contraseñas no coinciden mi estimado';
+                return;
+            }
+
+            if (contrasena.length < 5) {
+                event.preventDefault();
+                mensaje.textContent = 'La contraseña es muy corta debe al menos tener 5 caracteres';
+                return;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="nombre"></h1>
+    <h2 id="apellidos"></h2>
+    <p id="statusContra"></p>
+    <a href="" id="mail">
+    </a>
+</br>
+    <a href=""id="telefono">
+    </a>
+    <p id="texto"></p>
+    <script>
+            address = window.location.search; //url de la ventana del navegador
+            // Objeto de tipo URLSearchParams
+            parameterList = new URLSearchParams (address);
+
+            let nombre = parameterList.get('nombre');
+            let h1 = document.getElementById('nombre');
+            h1.innerText=nombre;
+            let apellidos=parameterList.get('apellidos');
+            let h2=document.getElementById('apellidos');
+            h2.innerText=apellidos;
+            let email = parameterList.get('email');
+            let fecha_de_nacimiento = parameterList.get('fecha_de_nacimiento');
+            let telefono = parameterList.get('telefono');
+            let user = parameterList.get('user');
+            let contra = parameterList.get('contra');
+            let repetir_contra = parameterList.get('repetir_contra');
+            let emailh=document.getElementById('mail');
+            let telefonoh=document.getElementById('telefono');
+            telefonoh.setAttribute("href","tel:"+telefono);
+            emailh.setAttribute("href","mailto:"+email);
+            telefonoh.innerText=telefono;
+            emailh.innerText=email;
+            let verificar_contra=document.getElementById('texto');
+            if (contra!=repetir_contra){
+                verificar_contra.innerText="Las contraseñas no coinciden";
+            }else{
+                if(contra.length<5){
+                    verificar_contra.innerText="Contraseña débil(elige una con 5 o más caracteres)";
+                }else{
+                    verificar_contra.innerText=contra;
+                }
+            }
+              // Calcular la edad
+            let calcularEdad = (fecha_de_nacimiento) => {
+            let hoy = new Date();
+            let nacimiento = new Date(fecha_de_nacimiento);
+            let edad = hoy.getFullYear() - nacimiento.getFullYear();
+            let diferenciaMeses = hoy.getMonth() - nacimiento.getMonth();
+            if (diferenciaMeses < 0 || (diferenciaMeses === 0 && hoy.getDate() < nacimiento.getDate())) {
+                edad--;
+            }
+            return edad;
+            };
+
+            let edad = calcularEdad(fecha_de_nacimiento);
+            let edadElemento = document.getElementById('edad');
+            edadElemento.innerText = "Edad: " + edad + " años";
+    </script>
+</body>
+</html>

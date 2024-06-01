@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bienvenido usuario</h1>
+    <h1 id="nombre"></h1> 
+    <h2 id="apellido paterno"></h2> 
+    <h2 id="apellido materno"></h2> 
+    <a href="mailto:correo" id="email"></a>
+    <br>
+    <a href="tel:telefono" id="telefono"></a>
+    <br>
+    <h3 id="fecha"></h3> 
+    <p id="statusContra"></p>
+    <p id="contra"></p>
+    <p id="contra2"></p>
+
+    <script>
+        getParameter = (key)=>{
+            address = window.location.search; // url de la ventana
+            //objeto de tipo URLSearchParams 
+            parameterList = new URLSearchParams(address);
+            // Regresa el valor del parametro "key"
+            return parameterList.get(key);
+
+        }
+        console.log(getParameter("nombre"));
+        let nombre = getParameter("nombre");
+        let apellido1 = getParameter("apellido paterno");
+        let apellido2 = getParameter("apellido materno");
+        let email = getParameter("email");
+        let telefono = getParameter("telefono");
+        let fecha = getParameter("fecha");
+        let contra = getParameter("contra");
+        let contra2 = getParameter("contra2");
+
+        //pintar el nombvre de usuario
+        document.getElementById("nombre").innerText = nombre;
+        document.getElementById("apellido paterno").innerText = apellido1;
+        document.getElementById("apellido materno").innerText = apellido2;
+        document.getElementById("fecha").innerText = fecha;
+        document.getElementById("email").innerText = email;
+        document.getElementById("telefono").innerText = telefono;
+        
+
+       
+        if (contra && contra2) {
+            const statusContraElement = document.getElementById("statusContra");
+            if (contra.length > 5 && contra === contra2) {
+                statusContraElement.innerText = "Tu contraseña es segura y coinciden";
+            } else if (contra.length <= 5 && contra !== contra2) {
+                statusContraElement.innerText = "No coinciden las contraseñas y no es segura";
+            } else if (contra.length <= 5) {
+                statusContraElement.innerText = "Tu contraseña no es segura";
+            } else {
+                statusContraElement.innerText = "No coinciden las contraseñas";
+            }
+        }
+        
+
+        
+    </script>
+</body>
+</html>

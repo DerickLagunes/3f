@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+        <h1>Bienvenido usuario</h1>
+        <h1 id="nombres"></h1>
+        <h2 id="apellidos"></h2>
+        <a id="email" href=""></a><br>
+        <a id="telefono" href=""></a><br>
+        <p id="edad"></p>
+        <p id="statusContra"></p>
+        <script>
+            function getParameter(key) {
+                const address = window.location.search;
+                const parameterList = new URLSearchParams(address);
+                return parameterList.get(key);
+            }
+    
+            function calcularEdad(fechaNacimiento) {
+                const hoy = new Date();
+                const fechaNac = new Date(fechaNacimiento);
+                let edad = hoy.getFullYear() - fechaNac.getFullYear();
+                const mes = hoy.getMonth() - fechaNac.getMonth();
+                if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNac.getDate())) {
+                    edad--;
+                }
+                return edad;
+            }
+    
+            const nombres = getParameter("nombres");
+            const apellidos = getParameter("apellidos");
+            const email = getParameter("email");
+            const telefono = getParameter("telefono");
+            const fechaNacimiento = getParameter("fecha");
+            const contraseña = getParameter("contra");
+            const contraseña2 = getParameter("contra2");
+    
+            document.getElementById("nombres").innerText = nombres;
+            document.getElementById("apellidos").innerText = apellidos;
+            document.getElementById("email").innerText = email;
+            document.getElementById("email").href = "mailto:" + email;
+            document.getElementById("telefono").innerText = telefono;
+            document.getElementById("telefono").href = "tel:" + telefono;
+            document.getElementById("edad").innerText = "Edad: " + calcularEdad(fechaNacimiento);
+    
+            let statusContra = "";
+            if (contraseña !== contraseña2) {
+                statusContra = "Las contraseñas no coinciden. ";
+            }
+            if (contraseña.length < 5) {
+                statusContra += "Tu contraseña es insegura.";
+            } else if (contraseña === contraseña2) {
+                statusContra = "Tu contraseña es segura.";
+            }
+    
+            document.getElementById("statusContra").innerText = statusContra;
+        </script>
+    </body>
+    </html>

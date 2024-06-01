@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Registro de Persona</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="css/bootstrap.css"
+    />
+  </head>
+  <body>
+    <div
+      style="
+        border-radius: 25px;
+        margin-top: 30px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+      "
+    >
+      <form
+        style="margin: 0 auto; width: 25%"
+        action="verPersona.html"
+        method="get"
+        onsubmit="return confirmarContra()"
+      >
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="nombres"
+            name="nombres"
+            placeholder="Nombre"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="apellidos"
+            name="apellidos"
+            placeholder="Apellido"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="email"
+            class="form-control"
+            id="correo"
+            name="correo"
+            placeholder="juanperez@example.com"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label
+            >Fecha de nacimiento:
+            <input
+              class="form-control"
+              id="fechaNacimiento"
+              name="fechaNacimiento"
+              type="date"
+              required
+            />
+          </label>
+        </div>
+        <div class="mb-3">
+          <input
+            type="tel"
+            class="form-control"
+            id="telefono"
+            name="telefono"
+            placeholder="Telefono"
+            required
+          />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">@</span>
+          <input
+            type="text"
+            id="usuario"
+            name="usuario"
+            class="form-control"
+            placeholder="Username"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+            required
+          />
+        </div>
+        <div class="input-group mb-3">
+          <input
+            type="password"
+            id="contrasena"
+            name="contrasena"
+            class="form-control"
+            placeholder="Contraseña"
+            required
+          />
+        </div>
+        <p>Repita su Contraseña:</p>
+        <div class="input-group mb-3">
+          <input
+            type="password"
+            id="repetirContrasena"
+            name="repetirContrasena"
+            class="form-control"
+            placeholder="Contraseña"
+            required
+          />
+        </div>
+        <div class="input-group mb-lg-4">
+          <span id="passwordHelpInline" class="form-text"
+            >Mínimo de 5 caracteres.</span
+          >
+        </div>
+        <p id="mensajeError" style="color: red;" ></p>
+        <button type="submit" class="btn btn-primary">Registrar</button>
+      </form>
+    </div>
+    <script>
+      function confirmarContra() {
+        const contrasena = document.getElementById("contrasena").value;
+        const repetirContrasena =
+          document.getElementById("repetirContrasena").value;
+          const mensajeError = document.getElementById('mensajeError');
+
+        if (contrasena !== repetirContrasena) {
+          mensajeError.textContent = "Las contraseñas no coinciden";
+          return false;
+        }
+
+        if (contrasena.length < 5) {
+          mensajeError.textContent = "Su contraseña es insegura";
+          return false;
+        }
+
+        return true;
+      }
+    </script>
+    <script src="js/bootstrap.js"></script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='css/bootstrap.css'>
+    <title>Registrar Usuario</title>
+</head>
+<style>
+    body{
+        background-image: url(img/fdh.jpg);
+        color: white;
+    }
+</style>
+<body>
+    <h1>Registro de usuario</h1>
+    <form action="verPersona.html" method="get">
+        <div class="mb-3">
+            <label>Nombres:
+                <input type="text" placeholder="Ingrese sus nombres" required name="nombres"/>
+            </label>
+        </div>
+        <div class="mb-3">
+            <label>Apellidos:
+                <input type="text" placeholder="Ingrese sus apellidos" required name="apellidos"/>
+            </label>
+        </div>
+       
+        <div class="mb-3">
+            <label>Correo:
+                <input type="text" placeholder="Ingrese su correo" required name="correo"/>
+            </label>
+        </div>
+        
+        <div class="mb-3">
+            <label>Fecha de nacimiento:
+                <input type="date" required name="fecha_de_nacimiento"/>
+            </label>
+        </div>
+        
+        <div class="mb-3">
+            <label>Telefono:
+                <input type="text" placeholder="Ingrese su telefono" required name="telefono"/>
+            </label>
+        </div>
+        <div class="mb-3">
+            <label>Usuario:
+                <input type="text" placeholder="Ingrese su usuario" required name="usuario"/>
+            </label>
+        </div>
+        <div class="mb-3">
+            <label>Contraseña:
+                <input type="password" placeholder="Ingrese su contraseña" required name="contra"/>
+            </label>
+        </div>
+       
+        <div class="mb-3">
+            <label>Repetir contraseña:
+                <input type="password" placeholder="Su contraseña nuevamente" required name="contra2"/>
+            </label>
+        </div>
+       <input type="submit" value="Registrar">
+
+    </form>
+</body>
+</html>
+

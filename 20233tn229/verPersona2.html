@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Persona</title>
+</head>
+<body>
+    <h1 id="nombres"></h1>
+    <h2 id="apellidos"></h2>
+    <p id="statusContra1"></p>
+    <p id="statusContra2"></p>
+    <a href="mailto:" id="correoLink">Enviar un correo a </a><br>
+    <a href="mailto:" id="telefonoLink">Llamar a </a><br>
+    <h3 id="edad"></h3>
+
+    <script>
+        function getParameter(key) {
+            const address = window.location.search;
+            const parameterList = new URLSearchParams(address);
+            return parameterList.get(key);
+        }
+
+        const nombres = getParameter("nombres");
+        const apellidos = getParameter("apellidos");
+        const correo = getParameter("correo");
+        const fechaNacimiento = getParameter("fechaNacimiento");
+        const telefono = getParameter("telefono");
+        const usuario = getParameter("usuario");
+        const contra = getParameter("contra");
+        const contra2 = getParameter("contra2");
+
+        // Mostrar nombres y apellidos
+        document.getElementById("nombres").innerText = nombres;
+        document.getElementById("apellidos").innerText = apellidos;
+
+        // Mostrar enlaces de correo y teléfono
+        const correoLink = document.getElementById("correoLink");
+        correoLink.href = `mailto:${correo}`;
+        correoLink.innerText = `Enviar un correo a ${correo}`;
+
+        const telefonoLink = document.getElementById("telefonoLink");
+        telefonoLink.href = `tel:${telefono}`;
+        telefonoLink.innerText = `Llamar a ${telefono}`;
+
+        // Mostrar el estado de la contraseña
+        if (contra === contra2) {
+            document.getElementById("statusContra1").innerText = "Las contraseñas coinciden.";
+            if (contra.length >= 5) {
+                document.getElementById("statusContra2").innerText = "Tu contraseña es segura.";
+            } else {
+                document.getElementById("statusContra2").innerText = "Tu contraseña no es segura.";
+            }
+        } else {
+            document.getElementById("statusContra1").innerText = "Las contraseñas no coinciden.";
+        }
+
+        // Calcular la edad de manera simple
+        // Dividir la fecha de nacimiento para obtener el año
+        const fechaPartes = fechaNacimiento.split("-"); // Divide la fecha de nacimiento en partes (año, mes, día)
+        const añoNacimiento = parseInt(fechaPartes[0]); // Obtiene el año de nacimiento como número
+
+        // Obtener el año actual
+        const fechaActual = new Date(); // Crea un objeto Date con la fecha actual
+        const añoActual = fechaActual.getFullYear(); // Obtiene el año actual
+
+        // Calcular la edad restando el año de nacimiento del año actual
+        const edad = añoActual - añoNacimiento;
+
+        // Mostrar la edad calculada
+        document.getElementById("edad").innerText = `Edad: ${edad} años.`;
+    </script>
+</body>
+</html>

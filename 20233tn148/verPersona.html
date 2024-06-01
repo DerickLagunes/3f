@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='css/bootstrap.css'>
+    <title>Respuestas del formulario</title>
+    <style>
+        body {
+            background-image: url(img/fdh.jpg);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenido</h1>
+    <h1 id="nombreUsuario"></h1>
+    <h2 id="apellidoUsuario"></h2>
+    <a id="correo" href="mailto:correo"></a>
+    <br>
+    <a id="telefono" href="tel:telefono"></a>
+    <p id="edad"></p>
+    <h2 id="usuario"></h2>
+    <p id="statusContra"></p>
+    <script>
+        // Función para obtener parámetros de la URL
+        function getParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Función para calcular la edad a partir de la fecha de nacimiento
+        function calcularEdad(fechaNacimiento) {
+            const hoy = new Date();
+            const nacimiento = new Date(fechaNacimiento);
+            let edad = hoy.getFullYear() - nacimiento.getFullYear();
+            const mes = hoy.getMonth() - nacimiento.getMonth();
+            if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+                edad--;
+            }
+            return edad;
+        }
+
+        // Obtener los parámetros de la URL
+        const nombres = getParameter("nombres");
+        const apellidos = getParameter("apellidos");
+        const correo = getParameter("correo");
+        const fechaDeNacimiento = getParameter("fecha_de_nacimiento");
+        const telefono = getParameter("telefono");
+        const usuario = getParameter("usuario");
+        const contra = getParameter("contra");
+        const contra2 = getParameter("contra2");
+
+        // Mostrar los valores obtenidos en los elementos correspondientes
+        if (nombres) document.getElementById("nombreUsuario").innerText = nombres;
+        if (apellidos) document.getElementById("apellidoUsuario").innerText = apellidos;
+        if (correo) {
+            const correoElement = document.getElementById("correo");
+            correoElement.innerText = correo;
+            correoElement.href = `mailto:${correo}`;
+        }
+        if (telefono) {
+            const telefonoElement = document.getElementById("telefono");
+            telefonoElement.innerText = telefono;
+            telefonoElement.href = `tel:${telefono}`;
+        }
+        if (usuario) document.getElementById("usuario").innerText = usuario;
+
+        // Calcular y mostrar la edad si la fecha de nacimiento está presente
+        if (fechaDeNacimiento) {
+            const edad = calcularEdad(fechaDeNacimiento);
+            document.getElementById("edad").innerText = `Edad: ${edad} años`;
+        } else {
+            document.getElementById("edad").innerText = "No se proporcionó una fecha de nacimiento.";
+        }
+
+        // Verificar y mostrar el estado de la contraseña
+        if (contra && contra2) {
+            const statusContraElement = document.getElementById("statusContra");
+            if (contra.length > 5 && contra === contra2) {
+                statusContraElement.innerText = "Tu contraseña es segura y coinciden";
+            } else if (contra.length <= 5 && contra !== contra2) {
+                statusContraElement.innerText = "No coinciden las contraseñas y no es segura";
+            } else if (contra.length <= 5) {
+                statusContraElement.innerText = "Tu contraseña no es segura";
+            } else {
+                statusContraElement.innerText = "No coinciden las contraseñas";
+            }
+        }
+    </script>
+</body>
+</html>
