@@ -46,11 +46,21 @@
     document.getElementById("contra2").innerText = contra2;
 
     // Pintar estado de la contraseña
-    if (contra.length > 5) {
+    if (contra.length > 7 || contra2.length > 7) {
         document.getElementById("statusContra").innerText = "Tu contraseña es segura";
     } else {
         document.getElementById("statusContra").innerText = "Tu contraseña NO es segura";
     }
+
+    if (contra=!contra2) {
+        document.getElementById("erronea").innerText = "Contraseñas no coinciden";
+    } else {
+        document.getElementById("erronea").innerText = "Contraseñas coinciden";
+    }
 </script>
+
+<button src="NuevoCliente.html">Volver</button>
+
+
 </body>
 </html>
