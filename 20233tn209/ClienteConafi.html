@@ -8,7 +8,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='CSS/bootstrap.css'>
 </head>
 <body>
-    <p>v2.1</p>
+    <p>v2.2</p>
 <h1 id="name"></h1>
 <h2 id="last"></h2>
 <p id="email"></p>
@@ -29,7 +29,7 @@
     let last = getParameter("last");
     let email = getParameter("email");
     let date = new Date(getParameter("date"));
-    let tel = getParameter("statusTel");
+    let tel = getParameter("tel");
     let user = getParameter("user");
     let contra = getParameter("contra");
     let contra2 = getParameter("contra2");
@@ -38,15 +38,15 @@
     document.getElementById("name").innerText = name;
     document.getElementById("last").innerText = last;
     document.getElementById("email").innerHTML = `<a href="mailto:${email}">${email}</a>`;
-    document.getElementById("date").innerText = "Edad: " + calculateAge(age) + " años";
-    document.getElementById("tel").innerHTML = tel;
+    document.getElementById("date").innerText = "Edad: " + calculateAge(date) + " años"; // Usar la función calculateAge
+    document.getElementById("statusTel").innerText = tel; // Mostrar el número de teléfono directamente
     document.getElementById("user").innerText = user;
 
     // Pintar estado de la contraseña
     if (tel.length < 10) {
-        document.getElementById("statusTel").innerText = "Numero de telefono "+tel+" no válido";
+        document.getElementById("statusTel").innerText = "Numero de telefono " + tel + " no válido";
     } else {
-        document.getElementById("statusTel").innerText = "Numero "+tel+" Válido"
+        document.getElementById("statusTel").innerText = "Numero " + tel + " Válido";
     }
 
     if (contra.length < 5) {
@@ -62,11 +62,11 @@
         document.getElementById("erronea").innerText = "Las contraseñas coinciden";
     }
 
-    function calculateAge(cumple) {
+    function calculateAge(birthDate) {
         let currentDate = new Date();
-        let age = currentDate.getFullYear() - cumple.getFullYear();
-        let monthDifference = currentDate.getMonth() - cumple.getMonth();
-        if (monthDifference < 0 || (monthDifference === 0 && currentDate.getDate() < cumple.getDate())) {
+        let age = currentDate.getFullYear() - birthDate.getFullYear();
+        let monthDifference = currentDate.getMonth() - birthDate.getMonth();
+        if (monthDifference < 0 || (monthDifference === 0 && currentDate.getDate() < birthDate.getDate())) {
             age--;
         }
         return age;
@@ -75,7 +75,7 @@
 
 <button>
 <a href="NuevoCliente.html">Volver</a>
-
 </button>
+
 </body>
 </html>
