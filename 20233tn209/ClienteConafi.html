@@ -8,16 +8,54 @@
     <link rel='stylesheet' type='text/css' media='screen' href='CSS/bootstrap.css'>
 </head>
 <body>
-    <p>v2.2</p>
-<h1 id="name"></h1>
-<h2 id="last"></h2>
-<p id="email"></p>
-<p id="date"></p>
-<p id="statusTel"></p>
-<p id="user"></p>
-<p id="statusContra"></p>
-<p id="erronea"></p>
 
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>CONAFI</h1>
+                <img src="IMG/imgV.jpg" width="500" height="500">
+            </div>
+            
+            <div>
+                <h1>Bienvenido a nuestra comunidad financiera</h1>
+            <p>v3</p>
+                <table>
+                    <tr>
+                    <td><h1 id="name"></h1></td>
+                    <td><h2 id="last"></h2></td>
+                </tr>
+                <tr>
+                    <td><p>Contacto</p></td>
+                </tr>
+                <tr>
+                    <td><p>Correo Electrónico</p></td>
+                    <td><p id="email"></p></td>
+                </tr>
+                <tr>
+                    <td><p>Telefono</p></td>
+                    <td><p id="statusTel"></p></td>
+                </tr>
+                <tr>
+                    <td><p>Perfil</p></td>
+                </tr>
+                <tr>
+                    <td><p>Edad</p></td>
+                    <td><p id="date"></p></p></td>
+                </tr>
+                <tr>
+                    <td><p>Usuario</p></td>
+                    <td><p id="user"></p></td>
+                </tr>
+
+                <tr>
+                    <td><p id="statusContra"></p></td>
+                    <td><p id="erronea"></p>
+                    </td>
+                </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 <script>
     function getParameter(key) {
         let address = window.location.search; // Obtiene la URL de la barra de búsqueda del navegador
