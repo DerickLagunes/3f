@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventana</title>
+</head>
+    <body>
+        <h1>Bienvenido</h1>
+        <h1 id="nombres"></h1>
+        <h2 id="apellidos"></h2>
+        <a>Correo registrado: </a>
+        <a id="email" href=""></a><br>
+        <a>Telefono: </a>
+        <a id="telefono" href=""></a><br>
+        <a>Edad del usuario </a>
+        <a id="edad"></a>
+        <p id="confirmo"></p>
+        <script>
+            function getParameter(key) {
+                const address = window.location.search;
+                const parameterList = new URLSearchParams(address);
+                return parameterList.get(key);
+            }
+    
+            function edad(fechaNac) {
+                const hoy = new Date();
+                const fech = new Date(fechaNac);
+                let edad = hoy.getFullYear() - fech.getFullYear();
+                const mes = hoy.getMonth() - fech.getMonth();
+                if (mes < 0 || (mes === 0 && hoy.getDate() < fech.getDate())) {
+                    edad--;
+                }
+                return edad;
+            }
+    
+            const nombres = getParameter("nombres");
+            const apellidos = getParameter("apellidos");
+            const email = getParameter("email");
+            const telefono = getParameter("telefono");
+            const fechaNac = getParameter("fecha");
+            const contraseña = getParameter("contra");
+            const confirmar = getParameter("contra2");
+    
+            document.getElementById("nombres").innerText = nombres;
+            document.getElementById("apellidos").innerText = apellidos;
+            document.getElementById("email").innerText = email;
+            document.getElementById("email").href = "mailto:" + email;
+            document.getElementById("telefono").innerText = telefono;
+            document.getElementById("telefono").href = "tel:" + telefono;
+            document.getElementById("edad").innerText = edad(fechaNac);
+    
+            let confirmo = "";
+            if (contraseña !== confirmar) {
+                confirmo = "Las contraseñas no son iguales ";
+            }
+            if (contraseña.length < 8) {
+                confirmo += "Tu contraseña no es segura";
+            } else if (contraseña === confirmar) {
+                confirmo = "Tu contraseña es segura";
+            }
+    
+            document.getElementById("confirmo").innerText = confirmo;
+        </script>
+    </body>
+    </html>
