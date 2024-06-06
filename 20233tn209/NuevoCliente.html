@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Registro de nuevo Cliente</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='CSS/bootstrap.css'>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>CONAFI</h1>
+            <img src="IMG/imgV.jpg" width="500" height="500">
+        </div>
+
+        <div class="col">
+            <h1>Únete a nuestra comunidad financiera</h1>
+            <p>v3</p>
+            <form action="ClienteConafi.html" method="get">
+                <table>
+                    <tr>
+                        <td><label>Nombre(s):</label></td>
+                        <td><input type="text" placeholder="Ingresa tu nombre o nombres" required name="name"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Apellidos:</label></td>
+                        <td><input type="text" placeholder="Ingresa tus Apellidos" required name="last"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Correo:</label></td>
+                        <td><input type="email" placeholder="Proporciona tu correo electrónico personal" required name="email"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Nacimiento:</label></td>
+                        <td><input type="date" placeholder="¿En qué fecha naciste?" required name="date"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Teléfono personal:</label></td>
+                        <td><input type="text" placeholder="Ingresa tu número de teléfono" required name="tel"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Nombre de Usuario:</label></td>
+                        <td><input type="text" placeholder="Crea un nombre de usuario" required name="user"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Genera una Contraseña:</label></td>
+                        <td><input type="password" placeholder="Genere su contraseña" required name="contra"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Confirma tu Contraseña:</label></td>
+                        <td><input type="password" placeholder="Repita su contraseña" required name="contra2"></td>
+                    </tr>
+                </table>
+                <input type="submit" value="Registrar">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
